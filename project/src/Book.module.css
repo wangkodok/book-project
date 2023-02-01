@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body {
+  min-width: 1360px;
+}
+
+.bookSearch {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.bookSearch h1 {
+  margin: 0 0 20px 0;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.bookSearch input {
+  width: 100%;
+  border: 1px solid #000;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.bookList {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.bookList .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+}
+
+.bookList .item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.boxContent {
+  margin: 0 0 0 32px;
+  overflow: hidden;
+}
+
+.boxContent .title {
+  display: block;
+  font-size: 20px;
+}
+
+.boxContent .bookTitle {
+  line-height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

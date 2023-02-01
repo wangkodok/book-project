@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "./Book.module.css";
 
 function App() {
   const [query, setQuery] = useState('');
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <section>
-      <div>
+      <div className={styled.bookSearch}>
         <h1>책 제목을 검색해보세요.</h1>
         <input
           onChange={onChange}
@@ -45,7 +46,7 @@ function App() {
         />
       </div>
       <div>
-        <ul>
+        <ul className={styled.bookList}>
           {
             query === '' ?
             null :  
@@ -53,18 +54,18 @@ function App() {
             '' : 
             bookData.map((value, i) => {
               return (
-                <li key={i}>
+                <li className={styled.item} key={i}>
                   <figure>
                     <img src={bookData[i].thumbnail} alt={bookData[i].title} />
                   </figure>
-                  <div>
-                    <strong>{bookData[i].title}</strong>
-                    <p>책 소개: {bookData[i].contents}</p>
-                    <p>정상가격: <em>{`${bookData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
-                    <p>할인가격: <em>{`${bookData[i].sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
-                    <p>저자: {bookData[i].authors[i]}</p>
-                    <p>최초 발행일: {`${bookData[i].datetime.substr(0, 4)}. ${bookData[i].datetime.substr(5, 2)}. ${bookData[i].datetime.substr(8, 2)}.`}</p>
-                    <p>출판사: {bookData[i].publisher}</p>
+                  <div className={styled.boxContent}>
+                    <strong className={styled.title}>{bookData[i].title}</strong>
+                    <p className={styled.bookTitle}>책 소개: {bookData[i].contents}</p>
+                    <p className={styled.price}>정상가격: <em>{`${bookData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
+                    <p className={styled.sale_price}>할인가격: <em>{`${bookData[i].sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
+                    <p className={styled.authors}>저자: {bookData[i].authors[i]}</p>
+                    <p className={styled.datetime}>최초 발행일: {`${bookData[i].datetime.substr(0, 4)}. ${bookData[i].datetime.substr(5, 2)}. ${bookData[i].datetime.substr(8, 2)}.`}</p>
+                    <p className={styled.publisher}>출판사: {bookData[i].publisher}</p>
                   </div>
                 </li>
               )
