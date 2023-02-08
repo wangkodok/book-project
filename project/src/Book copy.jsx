@@ -12,30 +12,28 @@ function App() {
     page: 1, // 결과 페이지 번호, 1~100 사이의 값, 기본 값 1
     size: 10, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
   }
-  const onClick = async () => {
-    if (query.trim() !== '') {
-      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${request.size}&query=${query}`, {
-        method: "GET",
-        headers: {
+  const getMovies = async () => {
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${request.size}&query=${query}`, {
+      method: 'GET',
+      headers: {
           'Content-Type': 'application/json',
           'Authorization': 'KakaoAK 74ea4aa39a2b0be9171454168fe7ca86',
-        },
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        setBookData(data.documents);
-      });
-    } else if (query === '') {
-      alert('입력되지 않았습니다.');
-    } else {
-      alert('검색어를 다시 입력해주세요.');
-    };
+      }
+    });
+    const json = await response.json();
+    setBookData(json.documents);
   };
   useEffect(() => {
     if (query === '') {
       return
-    };
-  }, [query]);
+    } else if (query === '' || query === ' ' || query === '  ') {
+      alert('검색어를 입력해 주세요.');
+      setQuery('');
+    } else {
+      getMovies(); // 함수 실행
+      setBookData('');
+    }
+  }, [query]) // [] 안에 있는 변수가 변하면 getMovies() 함수 실행
 
   return (
     <>
@@ -51,17 +49,18 @@ function App() {
           <h1>책 제목을 검색해보세요.</h1>
           <input
             onChange={onChange}
-            value={query}
+            value={query || ''}
             test="text"
             placeholder="예) 리액트를 다루는 기술, 이것이 자바다"
           />
-          <button onClick={onClick}>검색</button>
         </div>
         <div>
           <ul className={styled.bookList}>
             {
-              bookData === undefined ? 
-              null :
+              query === '' ?
+              null :  
+              bookData.length === 0 || bookData.length === ' ' ? 
+              '' : 
               bookData.map((value, i) => {
                 return (
                   <li className={styled.item} key={i}>
