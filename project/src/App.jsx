@@ -1,8 +1,13 @@
+import { Routes, Route } from 'react-router-dom';
+import Book from './Book';
+
 function App() {
   return (
-    <div>
-      <h1>hello world</h1>
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Book />} />
+      </Routes>
+    </>
   );
 }
 
