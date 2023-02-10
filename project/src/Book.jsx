@@ -8,6 +8,11 @@ function App() {
   const onChange = (event) => {
     setQuery(event.target.value);
   };
+  const onKeyDown = (event) => {
+    if(event.keyCode === 13) {
+      onClick();
+    }
+  };
   const request = {
     page: 1, // 결과 페이지 번호, 1~100 사이의 값, 기본 값 1
     size: 10, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
@@ -51,6 +56,7 @@ function App() {
           <h1>책 제목을 검색해보세요.</h1>
           <input
             onChange={onChange}
+            onKeyDown={onKeyDown}
             value={query}
             test="text"
             placeholder="예) 리액트를 다루는 기술, 이것이 자바다"
