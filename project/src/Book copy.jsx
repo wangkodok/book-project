@@ -5,7 +5,7 @@ import Banner from "../src/Banner.png"
 function App() {
   const [query, setQuery] = useState('');
   const [bookData, setBookData] = useState([]);
-  const [boxList, setBookList] = useState([]);
+  const [bookList, setBookList] = useState([]);
   const [queryText, setQueryText] = useState('');
   const onChange = (event) => {
     setQuery(event.target.value);
@@ -79,22 +79,22 @@ function App() {
         <div className={styled.bookWrap}>
           <ul className={styled.bookList}>
             {
-              boxList === undefined ? 
+              bookList === undefined ? 
               null :
-              boxList.map((value, i) => {
+              bookList.map((value, i) => {
                 return (
                   <li className={styled.item} key={i}>
                     <figure>
-                      <img src={boxList[i].thumbnail} alt={boxList[i].title} />
+                      <img src={bookList[i].thumbnail} alt={bookList[i].title} />
                     </figure>
                     <div className={styled.boxContent}>
-                      <strong className={styled.title}>{boxList[i].title}</strong>
-                      <p className={styled.bookTitle}>책 소개: {boxList[i].contents}</p>
-                      <p className={styled.price}>정상가격: <em>{`${boxList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
-                      <p className={styled.sale_price}>할인가격: <em>{`${boxList[i].sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
-                      <p className={styled.authors}>저자: {boxList[i].authors[i]}</p>
-                      <p className={styled.datetime}>최초 발행일: {`${boxList[i].datetime.substr(0, 4)}. ${boxList[i].datetime.substr(5, 2)}. ${boxList[i].datetime.substr(8, 2)}.`}</p>
-                      <p className={styled.publisher}>출판사: {boxList[i].publisher}</p>
+                      <strong className={styled.title}>{bookList[i].title}</strong>
+                      <p className={styled.bookTitle}>책 소개: {bookList[i].contents}</p>
+                      <p className={styled.price}>정상가격: <em>{`${bookList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
+                      <p className={styled.sale_price}>할인가격: <em>{`${bookList[i].sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
+                      <p className={styled.authors}>저자: {bookList[i].authors[i]}</p>
+                      <p className={styled.datetime}>최초 발행일: {`${bookList[i].datetime.substr(0, 4)}. ${bookList[i].datetime.substr(5, 2)}. ${bookList[i].datetime.substr(8, 2)}.`}</p>
+                      <p className={styled.publisher}>출판사: {bookList[i].publisher}</p>
                     </div>
                   </li>
                 )
