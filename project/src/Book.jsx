@@ -3,10 +3,19 @@ import styled from "./Book.module.css";
 import Banner from "../src/Banner.png"
 
 function App() {
+  const request = {
+    page: 1, // 결과 페이지 번호, 1~100 사이의 값, 기본 값 1
+    size: 10, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
+  }
   const [query, setQuery] = useState('');
   const [bookData, setBookData] = useState([]);
   const [bookList, setBookList] = useState([]);
   const [queryText, setQueryText] = useState('');
+  const [isButton, setIsButton] = useState(false);
+  const [size, setSize] = useState(request.size);
+  const [count, setCount] = useState(3);
+  const [result, setResult] = useState(false);
+  // const [valueResult, setValueResult] = useState('');
   const onChange = (event) => {
     setQuery(event.target.value);
   };
@@ -15,13 +24,11 @@ function App() {
       onClick();
     }
   };
-  const request = {
-    page: 1, // 결과 페이지 번호, 1~100 사이의 값, 기본 값 1
-    size: 3, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
-  }
   const onClick = async () => {
+    setIsButton(true);
+    setCount(3)
     if (query.trim() !== '') {
-      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${request.size}&query=${queryText}`, {
+      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${size - 7}&query=${queryText}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -31,16 +38,52 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setBookList(data.documents);
-        console.log(bookData);
+        
+        // 검색 후 아이템이 3개 이하면 "더 보기 버튼" 안 보여주기
+        if (bookData.length < 3) {
+          setResult(true)
+        } else {
+          setResult(false)
+        }
       });
     } else if (query === '') {
+      setIsButton(false);
+      setBookList([])
       console.log('입력되지 않았습니다.');
     } else {
+      setIsButton(false);
       console.log('검색어를 다시 입력해주세요.');
       return
     }
   };
+  const addOnClick = () => {
+    console.log('더 보기 버튼 영역');
+    let copy = count;
+    copy = copy + 3
+    setCount(copy);
+    if (query === '' && queryText === '') {
+      setIsButton(false);
+      console.log('입력하신 검색어가 없습니다.')
+    }
+    if (queryText !== '') {
+      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${count + 3}&query=${queryText}`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'KakaoAK 74ea4aa39a2b0be9171454168fe7ca86',
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        setBookList(data.documents);
+      });
+    } else {
+      setBookList([])
+      return
+    }
+  };
   useEffect(() => {
+    setCount(3)
     fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${request.size}&query=${query.trim() === '' ? null : query}`, {
       method: "GET",
       headers: {
@@ -53,7 +96,7 @@ function App() {
       setBookData(data.documents);
       setQueryText(query)
     });
-  }, [query]);
+  }, [query, queryText]);
 
   return (
     <>
@@ -101,6 +144,13 @@ function App() {
               })
             }
           </ul>
+          {
+            isButton === false ? 
+            null : 
+            result === true ? 
+            null : 
+            <button className={styled.itemAddButton} onClick={addOnClick}>더 보기</button>
+          }
         </div>
       </section>
     </>

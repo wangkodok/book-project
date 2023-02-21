@@ -88,3 +88,14 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.itemAddButton {
+  width: 100%;
+  border: 1px solid #000;
+  height: 48px;
+}
+
+.itemAddButton:hover {
+  background-color: #000;
+  color: #fff;
+}
