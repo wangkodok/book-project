@@ -1,102 +1,77 @@
 import { useEffect, useState } from "react";
 import styled from "./Book.module.css";
-import Banner from "../src/Banner.png"
+import Banner from "../src/Banner.png";
 
 function App() {
   const request = {
     page: 1, // 결과 페이지 번호, 1~100 사이의 값, 기본 값 1
-    size: 10, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
-  }
-  const [query, setQuery] = useState('');
+    size: 3, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
+  };
+  const [query, setQuery] = useState("");
   const [bookData, setBookData] = useState([]);
-  const [bookList, setBookList] = useState([]);
-  const [queryText, setQueryText] = useState('');
-  const [isButton, setIsButton] = useState(false);
   const [size, setSize] = useState(request.size);
-  const [count, setCount] = useState(3);
-  const [result, setResult] = useState(false);
-  // const [valueResult, setValueResult] = useState('');
+  const [save, setSave] = useState("");
+  const [addButton, setAddButton] = useState(false);
+
+  // input value 값 입력하면 query 저장
   const onChange = (event) => {
     setQuery(event.target.value);
   };
-  const onKeyDown = (event) => {
-    if(event.keyCode === 13) {
-      onClick();
-    }
-  };
-  const onClick = async () => {
-    setIsButton(true);
-    setCount(3)
-    if (query.trim() !== '') {
-      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${size - 7}&query=${queryText}`, {
-        method: "GET",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'KakaoAK 74ea4aa39a2b0be9171454168fe7ca86',
-        },
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        setBookList(data.documents);
-        
-        // 검색 후 아이템이 3개 이하면 "더 보기 버튼" 안 보여주기
-        if (bookData.length < 3) {
-          setResult(true)
-        } else {
-          setResult(false)
-        }
-      });
-    } else if (query === '') {
-      setIsButton(false);
-      setBookList([])
-      console.log('입력되지 않았습니다.');
-    } else {
-      setIsButton(false);
-      console.log('검색어를 다시 입력해주세요.');
-      return
-    }
-  };
+
+  // 더 보기 버튼
   const addOnClick = () => {
-    console.log('더 보기 버튼 영역');
-    let copy = count;
-    copy = copy + 3
-    setCount(copy);
-    if (query === '' && queryText === '') {
-      setIsButton(false);
-      console.log('입력하신 검색어가 없습니다.')
-    }
-    if (queryText !== '') {
-      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${count + 3}&query=${queryText}`, {
-        method: "GET",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'KakaoAK 74ea4aa39a2b0be9171454168fe7ca86',
-        },
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        setBookList(data.documents);
-      });
-    } else {
-      setBookList([])
-      return
-    }
-  };
-  useEffect(() => {
-    setCount(3)
-    fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${request.size}&query=${query.trim() === '' ? null : query}`, {
+    console.log("더 보기 버튼");
+    console.log(save);
+    fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${size + 3}&query=${save.trim() === "" ? "" : save}`, {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'KakaoAK 74ea4aa39a2b0be9171454168fe7ca86',
+        "Content-Type": "application/json",
+        Authorization: "KakaoAK 74ea4aa39a2b0be9171454168fe7ca86",
       },
     })
     .then((response) => response.json())
     .then((data) => {
       setBookData(data.documents);
-      setQueryText(query)
+      setSize(size + 3);
+      console.log(bookData);
     });
-  }, [query, queryText]);
+  };
+
+  // 검색 버튼 (Enter Key)
+  const onKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      onClick();
+    }
+  };
+
+  // 검색 버튼 (Mouse Click)
+  const onClick = () => {
+    console.log("검색 버튼");
+
+    setQuery(query);
+    setSave(query);
+    setSize(3);
+    setAddButton(true);
+    setBookData([]);
+
+    if (query.trim() !== "") {
+      fetch(`https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${request.page}&size=${request.size}&query=${query.trim() === "" ? null : query}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "KakaoAK 74ea4aa39a2b0be9171454168fe7ca86",
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        setBookData(data.documents);
+        console.log(bookData);
+      });
+    }
+  };
+  useEffect(() => {
+    console.log(bookData);
+  }, [query, size, save, bookData]);
 
   return (
     <>
@@ -120,36 +95,49 @@ function App() {
           <button onClick={onClick}>검색</button>
         </div>
         <div className={styled.bookWrap}>
-          <ul className={styled.bookList}>
-            {
-              bookList === undefined ? 
-              null :
-              bookList.map((value, i) => {
-                return (
-                  <li className={styled.item} key={i}>
-                    <figure>
-                      <img src={bookList[i].thumbnail} alt={bookList[i].title} />
-                    </figure>
-                    <div className={styled.boxContent}>
-                      <strong className={styled.title}>{bookList[i].title}</strong>
-                      <p className={styled.bookTitle}>책 소개: {bookList[i].contents}</p>
-                      <p className={styled.price}>정상가격: <em>{`${bookList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
-                      <p className={styled.sale_price}>할인가격: <em>{`${bookList[i].sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`}</em></p>
-                      <p className={styled.authors}>저자: {bookList[i].authors[i]}</p>
-                      <p className={styled.datetime}>최초 발행일: {`${bookList[i].datetime.substr(0, 4)}. ${bookList[i].datetime.substr(5, 2)}. ${bookList[i].datetime.substr(8, 2)}.`}</p>
-                      <p className={styled.publisher}>출판사: {bookList[i].publisher}</p>
-                    </div>
-                  </li>
-                )
-              })
-            }
-          </ul>
           {
-            isButton === false ? 
+            save === "" ? 
+            null : (
+            <ul className={styled.bookList}>
+              {
+                bookData.map((value, i) => {
+                  return (
+                    <li className={styled.item} key={i}>
+                      <figure>
+                        <img src={bookData[i].thumbnail} alt={bookData[i].title} />
+                      </figure>
+                      <div className={styled.boxContent}>
+                        <strong className={styled.title}>{bookData[i].title}</strong>
+                        <p className={styled.bookTitle}>책 소개: {bookData[i].contents}</p>
+                        <p className={styled.price}>정상가격:{" "}<em>{`${bookData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</em></p>
+                        <p className={styled.sale_price}>할인가격:{" "}<em>{`${bookData[i].sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</em></p>
+                        <p className={styled.authors}>저자: {bookData[i].authors[i]}</p>
+                        <p className={styled.datetime}>최초 발행일:{" "}{`${bookData[i].datetime.substr(0, 4)}. ${bookData[i].datetime.substr(5, 2)}. ${bookData[i].datetime.substr(8, 2)}.`}</p>
+                        <p className={styled.publisher}>출판사: {bookData[i].publisher}</p>
+                      </div>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          )}
+          {
+            save === "" ? 
             null : 
-            result === true ? 
+            bookData.length === 0 ? 
+            (
+              <>
+                <p><strong>"{save}"</strong>에 대한 검색결과가 없습니다.</p>
+                <p>ㆍ검색어의 철자가 정확한지 확인해주세요.</p>
+                <p>ㆍ비슷한 다른 검색어를 입력해보세요.</p>
+                <p>ㆍ단어의 수를 줄여보세요.</p>
+              </>
+            ) : 
+            addButton === false ? 
             null : 
-            <button className={styled.itemAddButton} onClick={addOnClick}>더 보기</button>
+            (
+              <button className={styled.itemAddButton} onClick={addOnClick}>더 보기</button>
+            )
           }
         </div>
       </section>
