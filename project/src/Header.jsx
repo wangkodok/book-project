@@ -6,7 +6,7 @@ function Header() {
     <HeaderWrap>
       <h1 className="blind">도서 검색 홈페이지</h1>
       <DivInner>
-        <Link to="/">Home</Link>
+        <Link to="/book-project">Home</Link>
         <DivGnbWrap>
           <UlList className="list">
             <LiItem>

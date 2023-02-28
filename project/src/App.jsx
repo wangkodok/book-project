@@ -7,7 +7,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<Book />} />
+        <Route path='/book-project' element={<Book />} />
       </Routes>
     </>
   );
