@@ -1,6 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import Header from './Header';
 import Book from './Book';
+import Event from './Event'
+import EventPage from './EventPage'
 
 function App() {
   return (
@@ -8,6 +10,9 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Book />} />
+        <Route path='/event' element={<Event />}>
+          <Route path=':id' element={<EventPage />} />
+        </Route>
       </Routes>
     </>
   );

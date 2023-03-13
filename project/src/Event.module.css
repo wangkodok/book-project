@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.event {
+  border-top: 1px solid #eee;
+}
+
+.title_wrap {
+  padding: 20px 0;
+  margin: 0 0 40px 0;
+}
+
+.title_wrap h2 {
+  margin: 0 0 12px 0;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.title_wrap p {
+  font-size: 20px;
+}
+
+.event_list_wrap {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.event_list {
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.event_list .item {
+  width: calc( (100% / 3) - 20px );
+  margin: 10px 10px 60px 10px;
+}
+
+.event_list .figure img {
+  width: 100%;
+}
+
+.event_list .text_wrap {
+  margin: 20px 0 0 0;
+}
+
+.event_list .text_wrap .tit {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.event_list .text_wrap .tit_desc {
+  font-size: 14px;
+}

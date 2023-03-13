@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "./Book.module.css";
 import Banner from "../src/Banner.png";
+import EventMore from "./EventMore";
 
 function App() {
   const request = {
@@ -141,6 +142,7 @@ function App() {
           }
         </div>
       </section>
+      <EventMore />
     </>
   );
 }
