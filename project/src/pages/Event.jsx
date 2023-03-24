@@ -33,10 +33,7 @@ function Event() {
                 <li key={i} className={styled.item}>
                   <Link to={`/event/${data[i].id}`}>
                     <figure className={styled.figure}>
-                      <img
-                        src="https://via.placeholder.com/320x320.jpg"
-                        alt={data[i].title}
-                      />
+                      <img src={data[i].thumbnail} alt={data[i].title} />
                     </figure>
                     <div className={styled.text_wrap}>
                       <h3 className={styled.tit}>{data[i].title}</h3>
