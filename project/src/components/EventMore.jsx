@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "./EventMore.module.css";
+import styled from "../style/EventMore.module.css";
 
 function EventMore() {
   return (
@@ -21,7 +21,7 @@ function EventMore() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default EventMore
+export default EventMore;
