@@ -152,6 +152,11 @@ function App() {
                         출판사: {bookData[i].publisher}
                       </p>
                     </div>
+
+                    {/* MD추천 */}
+                    {`${bookData[i].price.toString()}` > 20000 ? (
+                      <strong className={styled.md}>MD추천</strong>
+                    ) : null}
                   </li>
                 );
               })}

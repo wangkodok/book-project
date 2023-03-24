@@ -72,6 +72,16 @@ body {
   background-color: #ddd;
 }
 
+.bookList .md {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #8044ff;
+  padding: 4px 6px;
+  color: #fff;
+  font-size: 12px;
+}
+
 .boxContent {
   margin: 0 0 0 32px;
   overflow: hidden;
