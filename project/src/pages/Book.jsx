@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "../style/Book.module.css";
-import Banner from "../assets/Banner.png";
 import EventMore from "../components/EventMore";
+import MainVisualSlider from "../components/MainVisualSlider";
 
 function App() {
   const request = {
@@ -86,13 +86,7 @@ function App() {
 
   return (
     <>
-      <section className={styled.visual}>
-        <div className={styled.content}>
-          <figure>
-            <img src={Banner} alt="" />
-          </figure>
-        </div>
-      </section>
+      <MainVisualSlider />
       <section>
         <div className={styled.bookSearch}>
           <h1>책 제목을 검색해보세요.</h1>
