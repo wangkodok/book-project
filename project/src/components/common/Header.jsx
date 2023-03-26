@@ -6,7 +6,7 @@ function Header() {
     <HeaderWrap>
       <h1 className="blind">도서 검색 홈페이지</h1>
       <DivInner>
-        <Link to="/">Home</Link>
+        <Link to="/"></Link>
         <DivGnbWrap>
           <UlList className="list">
             <LiItem>
@@ -32,10 +32,16 @@ let DivInner = styled.div`
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 42px 20px;
+  padding: 22px 0;
 
   > a {
     font-size: 18px;
+    background-image: url("/books_logo.png");
+    background-repeat: no-repeat;
+    background-size: auto 44px;
+    background-position: center;
+    width: 37px;
+    height: 44px;
   }
 `;
 
@@ -46,15 +52,13 @@ let UlList = styled.ul`
 `;
 
 let LiItem = styled.li`
+  margin: 0 24px 0 0;
+
   > a {
-    padding: 0 5px;
-    margin: 0 5px 0 0;
-    font-size: 19px;
+    font-size: 14px;
   }
 
   :last-child {
-    > a {
-      margin: 0;
-    }
+    margin: 0;
   }
 `;
