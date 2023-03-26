@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Header() {
@@ -19,12 +19,12 @@ function Header() {
         </DivGnbWrap>
       </DivInner>
     </HeaderWrap>
-  )
+  );
 }
 
-export default Header
+export default Header;
 
-let HeaderWrap = styled.header``
+let HeaderWrap = styled.header``;
 
 let DivInner = styled.div`
   display: flex;
@@ -33,17 +33,17 @@ let DivInner = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 42px 20px;
-  
+
   > a {
     font-size: 18px;
   }
-`
+`;
 
-let DivGnbWrap = styled.div``
+let DivGnbWrap = styled.div``;
 
 let UlList = styled.ul`
   display: flex;
-`
+`;
 
 let LiItem = styled.li`
   > a {
@@ -57,4 +57,4 @@ let LiItem = styled.li`
       margin: 0;
     }
   }
-`
+`;
