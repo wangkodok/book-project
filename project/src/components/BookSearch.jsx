@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "../style/BookSearch.module.css";
 import Sale from "./Sale";
 
+import { useDispatch } from "react-redux";
+import { isChange } from "../store/State";
+
 function BookSearch({
   onChange,
   onKeyDown,
@@ -9,9 +12,10 @@ function BookSearch({
   onClick,
   save,
   bookData,
-  addButton,
   addOnClick,
 }) {
+  let is = useDispatch();
+
   let [box, setBox] = useState([]);
   useEffect(() => {
     console.log(box);
@@ -115,7 +119,7 @@ function BookSearch({
             <p>ㆍ비슷한 다른 검색어를 입력해보세요.</p>
             <p>ㆍ단어의 수를 줄여보세요.</p>
           </>
-        ) : addButton === false ? null : (
+        ) : is(isChange()) === false ? null : (
           <button className={styled.itemAddButton} onClick={addOnClick}>
             더 보기
           </button>

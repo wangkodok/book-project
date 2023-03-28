@@ -10,7 +10,6 @@ function Apps({
   onClick,
   save,
   bookData,
-  addButton,
   addOnClick,
 }) {
   console.log(bookData);
@@ -24,7 +23,6 @@ function Apps({
         onClick={onClick}
         save={save}
         bookData={bookData}
-        addButton={addButton}
         addOnClick={addOnClick}
       />
       <EventMore />

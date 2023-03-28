@@ -102,7 +102,6 @@ function App() {
               onClick={onClick}
               save={save}
               bookData={bookData}
-              addButton={addButton}
               addOnClick={addOnClick}
             />
           }

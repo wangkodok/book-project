@@ -1,7 +1,14 @@
+import { useSelector } from "react-redux";
 import styled from "../style/SalePage.module.css";
 
 function SalePage({ bookData }) {
   console.log(bookData);
+
+  let i = useSelector((state) => {
+    return state;
+  });
+  console.log(i);
+
   return (
     <section>
       <div className={styled.inner}>
