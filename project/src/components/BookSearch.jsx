@@ -76,6 +76,10 @@ function BookSearch({
                     <p className={styled.publisher}>
                       출판사: {bookData[i].publisher}
                     </p>
+                    <div className={styled.sale}>
+                      <button>구매하기</button>
+                      <button>찜하기</button>
+                    </div>
                   </div>
 
                   {/* MD추천 */}

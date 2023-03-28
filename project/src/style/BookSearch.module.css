@@ -92,6 +92,21 @@
   text-overflow: ellipsis;
 }
 
+.boxContent .sale {
+  margin: 20px 0 0 0;
+}
+
+.boxContent .sale button {
+  border: 1px solid #000;
+  margin: 0 10px 0 0;
+  padding: 10px;
+}
+
+.boxContent .sale button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 .itemAddButton {
   width: 100%;
   border: 1px solid #000;
