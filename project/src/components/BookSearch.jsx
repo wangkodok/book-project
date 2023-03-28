@@ -13,15 +13,25 @@ function BookSearch({
   return (
     <section>
       <div className={styled.bookSearch}>
-        <h1>책 제목을 검색해보세요.</h1>
-        <input
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          value={query}
-          test="text"
-          placeholder="예) 리액트를 다루는 기술, 이것이 자바다"
-        />
-        <button onClick={onClick}>검색</button>
+        <h1>책을 검색해보세요.</h1>
+        <form
+          className={styled.form}
+          id="form"
+          name="search"
+          // onSubmit="return false;"
+        >
+          <input
+            form="form"
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            value={query}
+            test="text"
+            placeholder="예) 리액트를 다루는 기술, 이것이 자바다"
+          />
+          <button onClick={onClick} type="button">
+            <span className="blind">검색</span>
+          </button>
+        </form>
       </div>
       <div className={styled.bookWrap}>
         {save === "" ? null : (

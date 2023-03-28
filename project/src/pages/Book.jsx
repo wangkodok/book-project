@@ -46,6 +46,7 @@ function App() {
   // 검색 버튼 (Enter Key)
   const onKeyDown = (event) => {
     if (event.keyCode === 13) {
+      event.preventDefault();
       onClick();
     }
   };
