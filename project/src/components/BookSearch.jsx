@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "../style/BookSearch.module.css";
 import Sale from "./Sale";
 
@@ -11,6 +12,11 @@ function BookSearch({
   addButton,
   addOnClick,
 }) {
+  let [box, setBox] = useState([]);
+  useEffect(() => {
+    console.log(box);
+  }, [box]);
+
   return (
     <section>
       <div className={styled.bookSearch}>
@@ -77,7 +83,18 @@ function BookSearch({
                     <p className={styled.publisher}>
                       출판사: {bookData[i].publisher}
                     </p>
-                    <Sale />
+                    {/* <Sale bookData={bookData} /> */}
+                    <div className={styled.sale}>
+                      <button>구매하기</button>
+                      <button
+                        onClick={() => {
+                          setBox(bookData[i]);
+                          console.log(box);
+                        }}
+                      >
+                        찜하기
+                      </button>
+                    </div>
                   </div>
 
                   {/* MD추천 */}

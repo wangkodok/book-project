@@ -1,6 +1,7 @@
 import styled from "../style/SalePage.module.css";
 
-function SalePage() {
+function SalePage({ bookData }) {
+  console.log(bookData);
   return (
     <section>
       <div className={styled.inner}>
