@@ -3,6 +3,7 @@ import Header from "./components/common/Header";
 import Book from "./pages/Book";
 import Event from "./pages/Event";
 import EventPage from "./pages/EventPage";
+import SalePage from "./pages/SalePage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/event" element={<Event />}>
           <Route path=":id" element={<EventPage />} />
         </Route>
+        <Route path="/sale" element={<SalePage />} />
       </Routes>
     </>
   );

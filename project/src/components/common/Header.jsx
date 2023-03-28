@@ -15,6 +15,9 @@ function Header() {
             <LiItem>
               <Link to="/event">이벤트</Link>
             </LiItem>
+            <LiItem>
+              <Link to="/sale">찜목록</Link>
+            </LiItem>
           </UlList>
         </DivGnbWrap>
       </DivInner>
