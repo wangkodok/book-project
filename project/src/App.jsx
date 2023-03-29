@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
 import Book from "./pages/Book";
 import Event from "./pages/Event";
 import EventPage from "./pages/EventPage";
@@ -111,6 +112,7 @@ function App() {
         </Route>
         <Route path="/sale" element={<SalePage bookData={bookData} />} />
       </Routes>
+      <Footer />
     </>
   );
 }
