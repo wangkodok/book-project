@@ -22,10 +22,27 @@ let is = createSlice({
 
 export let { isChange } = is.actions;
 
+// 찜목록 수량
+let count = createSlice({
+  name: "count",
+  initialState: 0,
+  reducers: {
+    setCountPlus(state, action) {
+      return (state = state + action.payload);
+    },
+    setCountMinus(state, action) {
+      return (state = state - action.payload);
+    },
+  },
+});
+
+export let { setCountPlus, setCountMinus } = count.actions;
+
 export default configureStore({
   reducer: {
     user: user.reducer,
     stock: stock.reducer,
     is: is.reducer,
+    count: count.reducer,
   },
 });
