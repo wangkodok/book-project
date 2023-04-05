@@ -38,11 +38,26 @@ let count = createSlice({
 
 export let { setCountPlus, setCountMinus } = count.actions;
 
+// 찜목록
+let cartList = createSlice({
+  name: "cartList",
+  initialState: [],
+  reducers: {
+    setCartListAdd(state, action) {
+      // state.push(action.payload);
+      state.push(action.payload);
+    },
+  },
+});
+
+export let { setCartListAdd } = cartList.actions;
+
 export default configureStore({
   reducer: {
     user: user.reducer,
     stock: stock.reducer,
     is: is.reducer,
     count: count.reducer,
+    cartList: cartList.reducer,
   },
 });

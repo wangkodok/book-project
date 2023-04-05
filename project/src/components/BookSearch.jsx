@@ -3,7 +3,7 @@ import styled from "../style/BookSearch.module.css";
 import Sale from "./Sale";
 
 import { useDispatch } from "react-redux";
-import { isChange } from "../store/State";
+import { isChange, setCartListAdd, setCountPlus } from "../store/State";
 
 function BookSearch({
   onChange,
@@ -15,6 +15,7 @@ function BookSearch({
   addOnClick,
 }) {
   let is = useDispatch();
+  let dispatch = useDispatch();
 
   let [box, setBox] = useState([]);
   useEffect(() => {
@@ -94,6 +95,9 @@ function BookSearch({
                         onClick={() => {
                           setBox(bookData[i]);
                           console.log(box);
+
+                          dispatch(setCartListAdd(bookData[i]));
+                          // dispatch(setCountPlus(bookData[i]));
                         }}
                       >
                         찜하기

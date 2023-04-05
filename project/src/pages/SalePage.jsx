@@ -3,17 +3,23 @@ import styled from "../style/SalePage.module.css";
 import { setCountPlus, setCountMinus } from "../store/State";
 
 function SalePage({ bookData }) {
-  console.log(bookData);
+  // console.log(bookData);
 
   let i = useSelector((state) => {
     return state;
   });
-  console.log(i);
+  // console.log(i);
 
   let count = useSelector((state) => {
     return state.count;
   });
-  console.log(count);
+  // console.log(count);
+
+  let cartList = useSelector((state) => {
+    return state.cartList;
+  });
+  // console.log(typeof cartList[0]);
+  // console.log(cartList);
 
   // 찜목록 수량
   let dispatch = useDispatch();
@@ -30,51 +36,47 @@ function SalePage({ bookData }) {
       </div>
       <div className={styled.content}>
         <ul className={styled.list}>
-          <li className={styled.item}>
-            <div className={styled.contentList}>
-              <figure>
-                <img src="https://via.placeholder.com/82x120.jpg" alt="" />
-              </figure>
-              <div className={styled.saleItem}>
-                <span>제목</span>
-                <span>가격</span>
-                <span>{`수량: ${count}`}</span>
-                {/* // 찜목록 수량 */}
-                <button
-                  // - 버튼
-                  onClick={() => {
-                    // 현재 수량이 "0" 개이면 함수 종료
-                    if (count === 0) {
-                      return;
-                    }
-                    dispatch(setCountMinus(1));
-                  }}
-                >
-                  -
-                </button>
-                <button
-                  // + 버튼
-                  onClick={() => {
-                    dispatch(setCountPlus(1));
-                  }}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-          </li>
-          <li className={styled.item}>
-            <div className={styled.contentList}>
-              <figure>
-                <img src="https://via.placeholder.com/82x120.jpg" alt="" />
-              </figure>
-              <div className={styled.saleItem}>
-                <span>제목</span>
-                <span>가격</span>
-                <span>수량</span>
-              </div>
-            </div>
-          </li>
+          {cartList.map((value, i) => {
+            return (
+              <li key={i} className={styled.item}>
+                <div className={styled.contentList}>
+                  <figure>
+                    <img src="https://via.placeholder.com/82x120.jpg" alt="" />
+                  </figure>
+                  <div className={styled.saleItem}>
+                    {typeof cartList[i] === "undefined" ? (
+                      "제목"
+                    ) : (
+                      <span>{`제목: ${cartList[i].title}`}</span>
+                    )}
+                    <span>가격</span>
+                    <span>{`수량: ${count}`}</span>
+                    {/* // 찜목록 수량 */}
+                    <button
+                      // - 버튼
+                      onClick={() => {
+                        // 현재 수량이 "0" 개이면 함수 종료
+                        if (count === 0) {
+                          return;
+                        }
+                        dispatch(setCountMinus(1));
+                      }}
+                    >
+                      -
+                    </button>
+                    <button
+                      // + 버튼
+                      onClick={() => {
+                        dispatch(setCountPlus(1));
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
