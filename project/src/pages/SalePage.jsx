@@ -1,27 +1,40 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "../style/SalePage.module.css";
-import { setCountPlus, setCountMinus } from "../store/State";
+import {
+  setPrice,
+  setCountPlus,
+  setItemPlus,
+  setItemMinus,
+} from "../store/State";
+import { useState, useEffect } from "react";
 
 function SalePage({ bookData }) {
-  // console.log(bookData);
-
-  let i = useSelector((state) => {
-    return state;
-  });
-  // console.log(i);
-
-  let count = useSelector((state) => {
-    return state.count;
-  });
-  // console.log(count);
-
+  // 상품 찜목록
   let cartList = useSelector((state) => {
     return state.cartList;
   });
-  // console.log(typeof cartList[0]);
-  // console.log(cartList);
+  console.log(cartList);
+  // const map = new Map(); // 맵
+  // for (const character of cartList) {
+  //   map.set(JSON.stringify(character), character); // name, company가 모두 같은 객체 요소는 제외한 맵 생성
+  // }
+  // const arrUnique = [...map.values()];
+  // console.log(arrUnique); // 중복 제거 결과
 
-  // 찜목록 수량
+  // 수량 체크
+  let count = useSelector((state) => {
+    return state.count;
+  });
+  console.log(count);
+
+  let [add, setAdd] = useState([]);
+  useEffect(() => {
+    // for (let index = 0; index < cartList.length; index++) {
+    //   add.push(1);
+    // }
+  }, []);
+  console.log(add);
+
   let dispatch = useDispatch();
 
   return (
@@ -41,7 +54,7 @@ function SalePage({ bookData }) {
               <li key={i} className={styled.item}>
                 <div className={styled.contentList}>
                   <figure>
-                    <img src="https://via.placeholder.com/82x120.jpg" alt="" />
+                    <img src={`${cartList[i].thumbnail}`} alt="" />
                   </figure>
                   <div className={styled.saleItem}>
                     {typeof cartList[i] === "undefined" ? (
@@ -49,25 +62,34 @@ function SalePage({ bookData }) {
                     ) : (
                       <span>{`제목: ${cartList[i].title}`}</span>
                     )}
-                    <span>가격</span>
-                    <span>{`수량: ${count}`}</span>
-                    {/* // 찜목록 수량 */}
+                    {/* <span>{`가격: ${cartList[i].sale_price}`}</span> */}
+                    <span>{`가격: ${
+                      cartList[i].sale_price * cartList[i].itemCount
+                    }`}</span>
+                    <span>{`수량: ${cartList[i].itemCount}`}</span>
+
                     <button
                       // - 버튼
                       onClick={() => {
-                        // 현재 수량이 "0" 개이면 함수 종료
-                        if (count === 0) {
+                        if (cartList[i].itemCount === 1) {
                           return;
                         }
-                        dispatch(setCountMinus(1));
+                        dispatch(setItemMinus(i));
                       }}
                     >
                       -
                     </button>
+
                     <button
                       // + 버튼
                       onClick={() => {
-                        dispatch(setCountPlus(1));
+                        // let copy = [...add];
+                        // copy[i] = copy[i] + 1;
+                        // setAdd(copy);
+                        // dispatch(setCountPlus(copy));
+
+                        dispatch(setItemPlus(i));
+                        // dispatch(setItemPlus(cartList[i].title));
                       }}
                     >
                       +

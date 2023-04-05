@@ -87,6 +87,9 @@ function App() {
   };
   useEffect(() => {
     console.log(bookData);
+    for (let index = 0; index < bookData.length; index++) {
+      bookData[index].itemCount = 1;
+    }
   }, [query, size, save, bookData]);
 
   return (

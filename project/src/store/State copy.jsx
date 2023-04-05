@@ -15,10 +15,9 @@ export let { isChange } = is.actions;
 // 찜목록 수량
 let count = createSlice({
   name: "count",
-  initialState: [],
+  initialState: 0,
   reducers: {
     setCountPlus(state, action) {
-      console.log(state.title);
       return (state = state + action.payload);
     },
     setCountMinus(state, action) {
@@ -37,33 +36,31 @@ let cartList = createSlice({
     setCartListAdd(state, action) {
       state.push(action.payload);
     },
-    수량(state, action) {
-      state.push(action.payload);
-    },
     // 수량 체크 후 가격
-    setItemPlus(state, action) {
-      // let 번호 = state.findIndex((a) => {
-      //   return a.title === action.payload;
-      // });
-      // state[번호].itemCount++;
+    setBox(state, action) {
+      let copy = [...state];
+      for (let index = 0; index < state.length; index++) {
+        console.log(state[index].sale_price);
+        console.log(copy[index].sale_price);
+        console.log(action.payload);
 
-      // for (let index = 0; index < state.length; index++) {
-      //   if (state[index].title === action.payload) {
-      //     console.log(state[index].itemCount++);
-      //   }
-      // }
-      console.log(state[action.payload].title);
-      console.log(action.payload);
-
-      state[action.payload].itemCount = state[action.payload].itemCount + 1;
+        state[index].sale_price = action.payload[index];
+      }
     },
-    setItemMinus(state, action) {
-      state[action.payload].itemCount = state[action.payload].itemCount - 1;
+
+    setBookVolume(state, action) {
+      let copy = [...state];
+      for (let index = 0; index < state.length; index++) {
+        copy[index].bookCount = action.payload[index];
+
+        state[index].sale_price =
+          copy[index].sale_price * action.payload[index];
+      }
     },
   },
 });
 
-export let { setCartListAdd, 수량, setItemPlus, setItemMinus, setBookVolume } =
+export let { setCartListAdd, setPrice, setBox, setBookVolume } =
   cartList.actions;
 
 export default configureStore({

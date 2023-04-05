@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "../style/BookSearch.module.css";
 
-import { useDispatch, useSelector } from "react-redux";
-import { isChange, setCountPlus, 수량, setCartListAdd } from "../store/State";
+import { useDispatch } from "react-redux";
+import { isChange, setCartListAdd } from "../store/State";
 
 function BookSearch({
   onChange,
@@ -15,10 +15,6 @@ function BookSearch({
 }) {
   let is = useDispatch();
   let dispatch = useDispatch();
-  let count = useSelector((state) => {
-    return state.count;
-  });
-  console.log(count);
 
   let [box, setBox] = useState([]);
   useEffect(() => {
@@ -96,22 +92,15 @@ function BookSearch({
                       <button>구매하기</button>
                       <button
                         onClick={() => {
-                          // setBox(bookData[i]);
+                          setBox(bookData[i]);
 
-                          const map = new Map(); // 맵
-                          for (const character of bookData) {
-                            map.set(JSON.stringify(character), character); // name, company가 모두 같은 객체 요소는 제외한 맵 생성
-                          }
-                          const arrUnique = [...map.values()];
-                          console.log(arrUnique); // 중복 제거 결과
-                          dispatch(setCartListAdd(arrUnique[i]));
-                          // dispatch(setCartListAdd(bookData[i]));
+                          // 수량 추가?
+                          // bookData[i].bookCount = 1;
 
-                          // let copy = [...count];
-                          // copy.push(1);
-                          // console.log(copy);
-                          // count.push(1);
-                          // dispatch(setCountPlus(count));
+                          console.log(box);
+
+                          dispatch(setCartListAdd(bookData[i]));
+                          // dispatch(setCountPlus(bookData[i]));
                         }}
                       >
                         찜하기
