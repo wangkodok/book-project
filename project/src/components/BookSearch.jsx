@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import styled from "../style/BookSearch.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
-import { isChange, setCountPlus, 수량, setCartListAdd } from "../store/State";
+import { isChange, setCartListAdd } from "../store/State";
 
 function BookSearch({
   onChange,
@@ -20,21 +18,11 @@ function BookSearch({
   });
   console.log(count);
 
-  let [box, setBox] = useState([]);
-  useEffect(() => {
-    console.log(box);
-  }, [box]);
-
   return (
     <section>
       <div className={styled.bookSearch}>
         <h1>책을 검색해보세요.</h1>
-        <form
-          className={styled.form}
-          id="form"
-          name="search"
-          // onSubmit="return false;"
-        >
+        <form className={styled.form} id="form" name="search">
           <input
             form="form"
             onChange={onChange}
@@ -91,13 +79,10 @@ function BookSearch({
                     <p className={styled.publisher}>
                       출판사: {bookData[i].publisher}
                     </p>
-                    {/* <Sale bookData={bookData} /> */}
                     <div className={styled.sale}>
                       <button>구매하기</button>
                       <button
                         onClick={() => {
-                          // setBox(bookData[i]);
-
                           const map = new Map(); // 맵
                           for (const character of bookData) {
                             map.set(JSON.stringify(character), character); // name, company가 모두 같은 객체 요소는 제외한 맵 생성
@@ -105,13 +90,6 @@ function BookSearch({
                           const arrUnique = [...map.values()];
                           console.log(arrUnique); // 중복 제거 결과
                           dispatch(setCartListAdd(arrUnique[i]));
-                          // dispatch(setCartListAdd(bookData[i]));
-
-                          // let copy = [...count];
-                          // copy.push(1);
-                          // console.log(copy);
-                          // count.push(1);
-                          // dispatch(setCountPlus(count));
                         }}
                       >
                         찜하기
@@ -128,6 +106,8 @@ function BookSearch({
             })}
           </ul>
         )}
+
+        {/* 검색결과가 없을 시 나오는 문장 */}
         {save === "" ? null : bookData.length === 0 ? (
           <>
             <p>
