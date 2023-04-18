@@ -18,6 +18,11 @@ function App() {
   const [save, setSave] = useState("");
   const [addButton, setAddButton] = useState(false);
 
+  // 가격 , (콤마) 재사용 함수
+  const convertPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   // input value 값 입력하면 query 저장
   const onChange = (event) => {
     setQuery(event.target.value);
@@ -107,13 +112,17 @@ function App() {
               save={save}
               bookData={bookData}
               addOnClick={addOnClick}
+              convertPrice={convertPrice}
             />
           }
         />
         <Route path="/event" element={<Event />}>
           <Route path=":id" element={<EventPage />} />
         </Route>
-        <Route path="/sale" element={<SalePage bookData={bookData} />} />
+        <Route
+          path="/sale"
+          element={<SalePage bookData={bookData} convertPrice={convertPrice} />}
+        />
       </Routes>
       <Footer />
     </>

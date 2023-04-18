@@ -10,6 +10,7 @@ function BookSearch({
   save,
   bookData,
   addOnClick,
+  convertPrice,
 }) {
   let is = useDispatch();
   let dispatch = useDispatch();
@@ -54,15 +55,11 @@ function BookSearch({
                     </p>
                     <p className={styled.price}>
                       정상가격:{" "}
-                      <em>{`${bookData[i].price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</em>
+                      <em>{`${convertPrice(bookData[i].price)}원`}</em>
                     </p>
                     <p className={styled.sale_price}>
                       할인가격:{" "}
-                      <em>{`${bookData[i].sale_price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</em>
+                      <em>{`${convertPrice(bookData[i].sale_price)}원`}</em>
                     </p>
                     <p className={styled.authors}>
                       저자: {bookData[i].authors[i]}

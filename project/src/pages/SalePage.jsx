@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "../style/SalePage.module.css";
 import { setItemPlus, setItemMinus } from "../store/State";
 
-function SalePage() {
+function SalePage({ convertPrice }) {
   // 상품 찜목록
   let cartList = useSelector((state) => {
     return state.cartList;
@@ -36,9 +36,9 @@ function SalePage() {
                     ) : (
                       <span>{`제목: ${cartList[i].title}`}</span>
                     )}
-                    <span>{`가격: ${
+                    <span>{`가격: ${convertPrice(
                       cartList[i].sale_price * cartList[i].itemCount
-                    }`}</span>
+                    )}`}</span>
                     <span>{`수량: ${cartList[i].itemCount}`}</span>
                     <button
                       // - 버튼

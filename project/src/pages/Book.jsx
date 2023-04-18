@@ -11,6 +11,7 @@ function Apps({
   save,
   bookData,
   addOnClick,
+  convertPrice,
 }) {
   console.log(bookData);
   return (
@@ -24,6 +25,7 @@ function Apps({
         save={save}
         bookData={bookData}
         addOnClick={addOnClick}
+        convertPrice={convertPrice}
       />
       <EventMore />
     </>
