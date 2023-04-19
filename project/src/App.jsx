@@ -6,6 +6,7 @@ import Book from "./pages/Book";
 import Event from "./pages/Event";
 import EventPage from "./pages/EventPage";
 import SalePage from "./pages/SalePage";
+import { URL } from "./config"; // API 가져오기
 
 function App() {
   const request = {
@@ -33,9 +34,9 @@ function App() {
     console.log("더 보기 버튼");
     console.log(save);
     fetch(
-      `https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${
-        request.page
-      }&size=${size + 3}&query=${save.trim() === "" ? "" : save}`,
+      `${URL.KAKAO_API}&page=${request.page}&size=${size + 3}&query=${
+        save.trim() === "" ? "" : save
+      }`,
       {
         method: "GET",
         headers: {
@@ -72,9 +73,9 @@ function App() {
 
     if (query.trim() !== "") {
       fetch(
-        `https://dapi.kakao.com/v3/search/book?sort=accuracy&page=${
-          request.page
-        }&size=${request.size}&query=${query.trim() === "" ? null : query}`,
+        `${URL.KAKAO_API}&page=${request.page}&size=${request.size}&query=${
+          query.trim() === "" ? null : query
+        }`,
         {
           method: "GET",
           headers: {
