@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import EventMore from "../components/EventMore";
-import MainVisualSlider from "../components/MainVisualSlider";
-import BookSearch from "../components/BookSearch";
+import EventMore from "../components/main/EventMore";
+import VisualSlider from "../components/main/VisualSlider";
+import BookSearch from "../components/main/BookSearch";
 
 function Apps({
   onChange,
@@ -16,7 +16,7 @@ function Apps({
   console.log(bookData);
   return (
     <>
-      <MainVisualSlider />
+      <VisualSlider />
       <BookSearch
         onChange={onChange}
         onKeyDown={onKeyDown}

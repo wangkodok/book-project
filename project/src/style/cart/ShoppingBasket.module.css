@@ -25,24 +25,20 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-.content {
-}
-.content .list {
-}
+
 .content .list .item {
   padding: 20px 0;
   border-bottom: 1px solid #000;
 }
+
 .contentList {
   display: flex;
 }
-.contentList figure {
-}
-.contentList figure img {
-}
+
 .contentList .saleItem {
   margin: 0 0 0 20px;
 }
+
 .contentList .saleItem span {
   display: block;
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "../style/EventMore.module.css";
+import styled from "../../style/event/Event.module.css";
 
 function EventMore() {
   return (

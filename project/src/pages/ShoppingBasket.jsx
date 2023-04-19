@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import styled from "../style/SalePage.module.css";
+import styled from "../style/cart/ShoppingBasket.module.css";
 import { setItemPlus, setItemMinus } from "../store/State";
 
 function SalePage({ convertPrice }) {

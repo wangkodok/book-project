@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
-import Book from "./pages/Book";
-import Event from "./pages/Event";
-import EventPage from "./pages/EventPage";
-import SalePage from "./pages/SalePage";
+import MainContainer from "./pages/MainContainer"; // 메인 페이지 컨테이너
+import Event from "./components/event/Event";
+import EventDetailPage from "./components/event/EventDetailPage";
+import ShoppingBasket from "./pages/ShoppingBasket";
 import { URL } from "./config"; // API 가져오기
 
 function App() {
@@ -99,13 +99,17 @@ function App() {
   }, [query, size, save, bookData]);
 
   return (
+    // 메인 페이지
     <>
+      {/* 헤더 */}
       <Header />
+
       <Routes>
+        {/* 메인 */}
         <Route
           path="/"
           element={
-            <Book
+            <MainContainer
               onChange={onChange}
               onKeyDown={onKeyDown}
               query={query}
@@ -117,14 +121,22 @@ function App() {
             />
           }
         />
+
+        {/* 이벤트 */}
         <Route path="/event" element={<Event />}>
-          <Route path=":id" element={<EventPage />} />
+          <Route path=":id" element={<EventDetailPage />} />
         </Route>
+
+        {/* 찜목록 */}
         <Route
-          path="/sale"
-          element={<SalePage bookData={bookData} convertPrice={convertPrice} />}
+          path="/ShoppingBasket"
+          element={
+            <ShoppingBasket bookData={bookData} convertPrice={convertPrice} />
+          }
         />
       </Routes>
+
+      {/* 푸터 */}
       <Footer />
     </>
   );

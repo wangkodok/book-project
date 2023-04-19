@@ -3,33 +3,33 @@ import styled from "styled-components";
 
 function Header() {
   return (
-    <HeaderWrap>
+    <SectionHeader>
       <h1 className="blind">도서 검색 홈페이지</h1>
-      <DivInner>
+      <Inner>
         <Link to="/"></Link>
-        <DivGnbWrap>
-          <UlList className="list">
-            <LiItem>
+        <Gnb>
+          <List className="list">
+            <Item>
               <Link to="/best">베스트셀러</Link>
-            </LiItem>
-            <LiItem>
+            </Item>
+            <Item>
               <Link to="/event">이벤트</Link>
-            </LiItem>
-            <LiItem>
-              <Link to="/sale">찜목록</Link>
-            </LiItem>
-          </UlList>
-        </DivGnbWrap>
-      </DivInner>
-    </HeaderWrap>
+            </Item>
+            <Item>
+              <Link to="/ShoppingBasket">찜목록</Link>
+            </Item>
+          </List>
+        </Gnb>
+      </Inner>
+    </SectionHeader>
   );
 }
 
 export default Header;
 
-let HeaderWrap = styled.header``;
+let SectionHeader = styled.header``;
 
-let DivInner = styled.div`
+let Inner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,13 +48,13 @@ let DivInner = styled.div`
   }
 `;
 
-let DivGnbWrap = styled.div``;
+let Gnb = styled.nav``;
 
-let UlList = styled.ul`
+let List = styled.ul`
   display: flex;
 `;
 
-let LiItem = styled.li`
+let Item = styled.li`
   margin: 0 24px 0 0;
 
   > a {
