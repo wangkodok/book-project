@@ -2,6 +2,8 @@ import styled from "../../style/main/BookSearch.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { isChange, setCartListAdd } from "../../store/State";
 
+import NoSearch from "./NoSearch";
+
 function BookSearch({
   onChange,
   onKeyDown,
@@ -104,8 +106,10 @@ function BookSearch({
           </ul>
         )}
 
+        <NoSearch save={save} bookData={bookData} addOnClick={addOnClick} />
+
         {/* 검색결과가 없을 시 나오는 문장 */}
-        {save === "" ? null : bookData.length === 0 ? (
+        {/* {save === "" ? null : bookData.length === 0 ? (
           <>
             <p>
               <strong>"{save}"</strong>에 대한 검색결과가 없습니다.
@@ -118,7 +122,7 @@ function BookSearch({
           <button className={styled.itemAddButton} onClick={addOnClick}>
             더 보기
           </button>
-        )}
+        )} */}
       </div>
     </section>
   );
