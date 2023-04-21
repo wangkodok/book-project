@@ -15,3 +15,11 @@
 .bannerSlider {
   margin: 0 0 40px 0;
 }
+
+/* 슬라이더 CSS */
+.swiperList {
+}
+
+.swiperItem {
+  width: 100%;
+}
