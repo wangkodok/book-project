@@ -1,6 +1,6 @@
-import styled from "../../style/main/BookSearch.module.css";
+import styled from "style/main/BookSearch.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { isChange, setCartListAdd } from "../../store/State";
+import { isChange, setCartListAdd } from "store/State";
 
 import NoSearch from "./NoSearch";
 

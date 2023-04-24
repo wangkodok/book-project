@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import EventMore from "../components/main/EventMore";
-import VisualSlider from "../components/main/VisualSlider";
-import BookSearch from "../components/main/BookSearch";
+import EventMore from "components/main/EventMore";
+import VisualSlider from "components/main/VisualSlider";
+import BookSearch from "components/main/BookSearch";
 
 function Apps({
   onChange,

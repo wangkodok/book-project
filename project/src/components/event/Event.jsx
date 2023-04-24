@@ -1,6 +1,6 @@
-import styled from "../../style/event/Event.module.css";
+import styled from "style/event/Event.module.css";
 import { Outlet, Link, useParams } from "react-router-dom";
-import eventData from "../../eventData";
+import eventData from "eventData";
 import { useEffect, useState } from "react";
 
 function Event() {

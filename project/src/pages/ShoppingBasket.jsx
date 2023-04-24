@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import styled from "../style/cart/ShoppingBasket.module.css";
-import { setItemPlus, setItemMinus } from "../store/State";
+import styled from "style/cart/ShoppingBasket.module.css";
+import { setItemPlus, setItemMinus } from "store/State";
 
 function SalePage({ convertPrice }) {
   // 상품 찜목록

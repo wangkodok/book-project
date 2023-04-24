@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import styled from "../../style/main/EventMore.module.css";
+import styled from "style/main/EventMore.module.css";
 
 // 배너 이미지
-import EventImg00 from "../../../src/assets/event_slider_banner_00.jpg";
-import EventImg01 from "../../../src/assets/event_slider_banner_01.jpg";
+import EventImg00 from "assets/event_slider_banner_00.jpg";
+import EventImg01 from "assets/event_slider_banner_01.jpg";
 
 // 스와이퍼 리액트 컴포넌트, CSS
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import eventData from "../../eventData";
+import eventData from "eventData";
 import { useParams } from "react-router-dom";
 
 function EventPage() {

@@ -1,7 +1,7 @@
-import styled from "../../style/main/BookSearch.module.css";
+import styled from "style/main/BookSearch.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import { isChange } from "../../store/State";
+import { isChange } from "store/State";
 
 function NoSearch({ save, bookData, addOnClick }) {
   let is = useDispatch();

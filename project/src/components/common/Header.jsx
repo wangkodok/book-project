@@ -39,7 +39,7 @@ let Inner = styled.div`
 
   > a {
     font-size: 18px;
-    background-image: url("/books_logo.png");
+    background-image: url("books_logo.png");
     background-repeat: no-repeat;
     background-size: auto 44px;
     background-position: center;
