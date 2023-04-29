@@ -7,7 +7,7 @@ import { setIsBoolean } from "store/State";
 // CSS 모듈
 import styled from "style/main/BookSearch.module.css";
 
-function NoSearch({ save, bookData, addOnClick }) {
+function NoSearchResults({ save, bookData, addOnClick }) {
   let isBoolean = useDispatch();
 
   return (
@@ -31,4 +31,4 @@ function NoSearch({ save, bookData, addOnClick }) {
   );
 }
 
-export default NoSearch;
+export default NoSearchResults;

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setCartListAdd } from "store/State";
 
 // 컴포넌트
-import NoSearch from "components/main/NoSearch";
+import NoSearchResults from "components/main/NoSearchResults";
 
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
@@ -73,7 +73,11 @@ function BookSearchResult({ save, bookData, addOnClick, convertPrice }) {
       )}
 
       {/* 검색 결과가 없을 시 나오는 문장 */}
-      <NoSearch save={save} bookData={bookData} addOnClick={addOnClick} />
+      <NoSearchResults
+        save={save}
+        bookData={bookData}
+        addOnClick={addOnClick}
+      />
     </div>
   );
 }
