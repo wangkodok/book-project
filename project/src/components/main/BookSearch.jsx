@@ -1,14 +1,8 @@
-// 리덕스
-import { useDispatch } from "react-redux";
-
-// 상태 관리
-import { setCartListAdd } from "store/State";
-
-// 컴포넌트
-import NoSearch from "components/main/NoSearch";
-
 // CSS 모듈
 import styled from "style/main/BookSearch.module.css";
+
+// 컴포넌트
+import BookSearchResult from "./BookSearchResult";
 
 function BookSearch({
   onChange,
@@ -20,8 +14,6 @@ function BookSearch({
   addOnClick,
   convertPrice,
 }) {
-  let dispatch = useDispatch();
-
   return (
     <section>
       <div className={styled.bookSearch}>
@@ -40,70 +32,14 @@ function BookSearch({
           </button>
         </form>
       </div>
-      <div className={styled.bookWrap}>
-        {save === "" ? null : (
-          <ul className={styled.bookList}>
-            {bookData.map((value, i) => {
-              return (
-                <li className={styled.item} key={i}>
-                  <figure>
-                    <img src={bookData[i].thumbnail} alt={bookData[i].title} />
-                  </figure>
-                  <div className={styled.boxContent}>
-                    <strong className={styled.title}>
-                      {bookData[i].title}
-                    </strong>
-                    <p className={styled.bookTitle}>
-                      책 소개: {bookData[i].contents}
-                    </p>
-                    <p className={styled.price}>
-                      정상가격:{" "}
-                      <em>{`${convertPrice(bookData[i].price)}원`}</em>
-                    </p>
-                    <p className={styled.sale_price}>
-                      할인가격:{" "}
-                      <em>{`${convertPrice(bookData[i].sale_price)}원`}</em>
-                    </p>
-                    <p className={styled.authors}>
-                      저자: {bookData[i].authors[i]}
-                    </p>
-                    <p className={styled.datetime}>
-                      최초 발행일:{" "}
-                      {`${bookData[i].datetime.substr(0, 4)}. ${bookData[
-                        i
-                      ].datetime.substr(5, 2)}. ${bookData[i].datetime.substr(
-                        8,
-                        2
-                      )}.`}
-                    </p>
-                    <p className={styled.publisher}>
-                      출판사: {bookData[i].publisher}
-                    </p>
-                    <div className={styled.sale}>
-                      <button>구매하기</button>
-                      <button
-                        onClick={() => {
-                          dispatch(setCartListAdd(bookData[i]));
-                        }}
-                      >
-                        찜하기
-                      </button>
-                    </div>
-                  </div>
 
-                  {/* MD 추천 */}
-                  {`${bookData[i].price.toString()}` > 20000 ? (
-                    <strong className={styled.md}>MD추천</strong>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
-        )}
-
-        {/* 검색 결과가 없을 시 나오는 문장 */}
-        <NoSearch save={save} bookData={bookData} addOnClick={addOnClick} />
-      </div>
+      {/* 책 검색 결과 */}
+      <BookSearchResult
+        save={save}
+        bookData={bookData}
+        addOnClick={addOnClick}
+        convertPrice={convertPrice}
+      />
     </section>
   );
 }
