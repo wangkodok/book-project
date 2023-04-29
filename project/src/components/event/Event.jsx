@@ -1,18 +1,17 @@
-import styled from "style/event/Event.module.css";
+// 라우터
 import { Outlet, Link, useParams } from "react-router-dom";
+
+// 오브젝트 데이터
 import eventData from "eventData";
-import { useEffect, useState } from "react";
+
+// CSS 모듈
+import styled from "style/event/Event.module.css";
 
 function Event() {
-  const [data, setData] = useState(eventData);
-
   let { id } = useParams();
-  let 찾은상품 = data.find(function (x) {
-    return x.id === Number(id);
+  let findProduct = eventData.find(function (obj) {
+    return obj.id === Number(id);
   });
-  console.log(찾은상품);
-
-  useEffect(() => {}, [data]);
 
   return (
     <section className={styled.event}>
@@ -26,28 +25,31 @@ function Event() {
       </div>
       <div className={styled.event_list_wrap}>
         <Outlet></Outlet> {/* 이벤트에서 해당하는 페이지 */}
-        {찾은상품 !== undefined ? null : (
+        {findProduct !== undefined ? null : (
           <ul className={styled.event_list}>
-            {data.map((value, i) => {
-              return data[i].title === "not open" ? null : (
+            {eventData.map((value, i) => {
+              return eventData[i].title === "not open" ? null : (
                 <li key={i} className={styled.item}>
-                  <Link to={`/event/${data[i].id}`}>
+                  <Link to={`/event/${eventData[i].id}`}>
                     <figure className={styled.figure}>
-                      <img src={data[i].thumbnail} alt={data[i].title} />
+                      <img
+                        src={eventData[i].thumbnail}
+                        alt={eventData[i].title}
+                      />
                     </figure>
                     <div className={styled.text_wrap}>
-                      <h3 className={styled.tit}>{data[i].title}</h3>
-                      <p className={styled.tit_desc}>{`이벤트 기간: ${data[
+                      <h3 className={styled.tit}>{eventData[i].title}</h3>
+                      <p className={styled.tit_desc}>{`이벤트 기간: ${eventData[
                         i
-                      ].period.slice(0, 4)}년 ${data[i].period.slice(
+                      ].period.slice(0, 4)}년 ${eventData[i].period.slice(
                         4,
                         6
-                      )}월 ${data[i].period.slice(6, 8)}일 ~ ${data[
+                      )}월 ${eventData[i].period.slice(6, 8)}일 ~ ${eventData[
                         i
-                      ].period.slice(9, 13)}월 ${data[i].period.slice(
+                      ].period.slice(9, 13)}월 ${eventData[i].period.slice(
                         13,
                         15
-                      )}월 ${data[i].period.slice(15, 17)}일`}</p>
+                      )}월 ${eventData[i].period.slice(15, 17)}일`}</p>
                     </div>
                   </Link>
                 </li>

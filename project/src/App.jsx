@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
+// 라우터
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/common/Header";
-import Footer from "./components/common/Footer";
-import MainContainer from "./pages/MainContainer"; // 메인 페이지 컨테이너
-import Event from "./components/event/Event";
-import EventDetailPage from "./components/event/EventDetailPage";
-import ShoppingBasket from "./pages/ShoppingBasket";
-import { URL } from "./config"; // API 가져오기
+
+// API 가져오기
+import { URL } from "config";
+
+// 리액트 훅
+import { useEffect, useState } from "react";
+
+// 컴포넌트
+import Header from "components/common/Header";
+import Footer from "components/common/Footer";
+import MainContainer from "pages/MainContainer";
+import Event from "components/event/Event";
+import EventDetailPage from "components/event/EventDetailPage";
+import ShoppingBasket from "pages/ShoppingBasket";
 
 function App() {
   const request = {
@@ -17,7 +24,6 @@ function App() {
   const [bookData, setBookData] = useState([]);
   const [size, setSize] = useState(request.size);
   const [save, setSave] = useState("");
-  const [addButton, setAddButton] = useState(false);
 
   // 가격 , (콤마) 재사용 함수
   const convertPrice = (price) => {
@@ -68,7 +74,6 @@ function App() {
     setQuery(query);
     setSave(query);
     setSize(3);
-    setAddButton(true);
     setBookData([]);
 
     if (query.trim() !== "") {
@@ -96,7 +101,7 @@ function App() {
     for (let index = 0; index < bookData.length; index++) {
       bookData[index].itemCount = 1;
     }
-  }, [query, size, save, bookData]);
+  }, [size, save, bookData]);
 
   return (
     // 메인 페이지

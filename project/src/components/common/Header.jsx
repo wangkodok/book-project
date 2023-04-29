@@ -1,4 +1,7 @@
+// 라우터
 import { Link } from "react-router-dom";
+
+// 스타일 컴포넌트
 import styled from "styled-components";
 
 function Header() {

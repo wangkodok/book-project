@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import EventMore from "components/main/EventMore";
+// 컴포넌트
 import VisualSlider from "components/main/VisualSlider";
 import BookSearch from "components/main/BookSearch";
+import EventBanner from "components/main/EventBanner";
 
-function Apps({
+function Content({
   onChange,
   onKeyDown,
   query,
@@ -13,10 +13,12 @@ function Apps({
   addOnClick,
   convertPrice,
 }) {
-  console.log(bookData);
   return (
     <>
+      {/* 비주얼 슬라이드 */}
       <VisualSlider />
+
+      {/* 책 검색 */}
       <BookSearch
         onChange={onChange}
         onKeyDown={onKeyDown}
@@ -27,9 +29,11 @@ function Apps({
         addOnClick={addOnClick}
         convertPrice={convertPrice}
       />
-      <EventMore />
+
+      {/* 이벤트 배너 */}
+      <EventBanner />
     </>
   );
 }
 
-export default Apps;
+export default Content;

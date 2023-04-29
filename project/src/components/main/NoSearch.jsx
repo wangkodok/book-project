@@ -1,13 +1,18 @@
-import styled from "style/main/BookSearch.module.css";
-import { useDispatch, useSelector } from "react-redux";
+// 리덕스
+import { useDispatch } from "react-redux";
 
-import { isChange } from "store/State";
+// 상태 관리
+import { setIsBoolean } from "store/State";
+
+// CSS 모듈
+import styled from "style/main/BookSearch.module.css";
 
 function NoSearch({ save, bookData, addOnClick }) {
-  let is = useDispatch();
+  let isBoolean = useDispatch();
 
   return (
     <>
+      {/* 검색 결과가 없을 시 나오는 문장 */}
       {save === "" ? null : bookData.length === 0 ? (
         <>
           <p>
@@ -17,7 +22,7 @@ function NoSearch({ save, bookData, addOnClick }) {
           <p>ㆍ비슷한 다른 검색어를 입력해보세요.</p>
           <p>ㆍ단어의 수를 줄여보세요.</p>
         </>
-      ) : is(isChange()) === false ? null : (
+      ) : isBoolean(setIsBoolean()) === false ? null : (
         <button className={styled.itemAddButton} onClick={addOnClick}>
           더 보기
         </button>

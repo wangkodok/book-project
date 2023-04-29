@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
-import eventData from "eventData";
+// 라우터
 import { useParams } from "react-router-dom";
 
-function EventPage() {
-  const [data, setData] = useState(eventData);
+// 컴포넌트
+import eventData from "eventData";
 
+function EventPage() {
   let { id } = useParams();
-  let 찾은상품 = data.find(function (x) {
-    return x.id === Number(id);
+  let findProduct = eventData.find(function (obj) {
+    return obj.id === Number(id);
   });
-  console.log(찾은상품.detailPage);
+  console.log(findProduct.detailPage);
 
   return (
     <>
       <h3 style={{ fontSize: "24px", margin: "0 0 20px 0" }}>
-        {찾은상품.title}
+        {findProduct.title}
       </h3>
       <figure>
-        <img style={{ width: "100%" }} src={찾은상품.detailPage} alt="" />
+        <img style={{ width: "100%" }} src={findProduct.detailPage} alt="" />
       </figure>
     </>
   );

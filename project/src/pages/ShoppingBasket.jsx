@@ -1,6 +1,11 @@
+// 리덕스
 import { useDispatch, useSelector } from "react-redux";
-import styled from "style/cart/ShoppingBasket.module.css";
+
+// 상태 관리
 import { setItemPlus, setItemMinus } from "store/State";
+
+// CSS 모듈
+import styled from "style/cart/ShoppingBasket.module.css";
 
 function SalePage({ convertPrice }) {
   // 상품 찜목록
@@ -8,6 +13,9 @@ function SalePage({ convertPrice }) {
     return state.cartList;
   });
   console.log(cartList);
+
+  const setQuantity = [...new Map(cartList.map((m) => [m.title, m])).values()];
+  console.log(setQuantity);
 
   let dispatch = useDispatch();
 

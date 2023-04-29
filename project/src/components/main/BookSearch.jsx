@@ -1,8 +1,14 @@
-import styled from "style/main/BookSearch.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { isChange, setCartListAdd } from "store/State";
+// 리덕스
+import { useDispatch } from "react-redux";
 
-import NoSearch from "./NoSearch";
+// 상태 관리
+import { setCartListAdd } from "store/State";
+
+// 컴포넌트
+import NoSearch from "components/main/NoSearch";
+
+// CSS 모듈
+import styled from "style/main/BookSearch.module.css";
 
 function BookSearch({
   onChange,
@@ -14,12 +20,7 @@ function BookSearch({
   addOnClick,
   convertPrice,
 }) {
-  let is = useDispatch();
   let dispatch = useDispatch();
-  let count = useSelector((state) => {
-    return state.count;
-  });
-  console.log(count);
 
   return (
     <section>
@@ -82,13 +83,7 @@ function BookSearch({
                       <button>구매하기</button>
                       <button
                         onClick={() => {
-                          const map = new Map(); // 맵
-                          for (const character of bookData) {
-                            map.set(JSON.stringify(character), character); // name, company가 모두 같은 객체 요소는 제외한 맵 생성
-                          }
-                          const arrUnique = [...map.values()];
-                          console.log(arrUnique); // 중복 제거 결과
-                          dispatch(setCartListAdd(arrUnique[i]));
+                          dispatch(setCartListAdd(bookData[i]));
                         }}
                       >
                         찜하기
@@ -96,7 +91,7 @@ function BookSearch({
                     </div>
                   </div>
 
-                  {/* MD추천 */}
+                  {/* MD 추천 */}
                   {`${bookData[i].price.toString()}` > 20000 ? (
                     <strong className={styled.md}>MD추천</strong>
                   ) : null}
@@ -106,23 +101,8 @@ function BookSearch({
           </ul>
         )}
 
+        {/* 검색 결과가 없을 시 나오는 문장 */}
         <NoSearch save={save} bookData={bookData} addOnClick={addOnClick} />
-
-        {/* 검색결과가 없을 시 나오는 문장 */}
-        {/* {save === "" ? null : bookData.length === 0 ? (
-          <>
-            <p>
-              <strong>"{save}"</strong>에 대한 검색결과가 없습니다.
-            </p>
-            <p>ㆍ검색어의 철자가 정확한지 확인해주세요.</p>
-            <p>ㆍ비슷한 다른 검색어를 입력해보세요.</p>
-            <p>ㆍ단어의 수를 줄여보세요.</p>
-          </>
-        ) : is(isChange()) === false ? null : (
-          <button className={styled.itemAddButton} onClick={addOnClick}>
-            더 보기
-          </button>
-        )} */}
       </div>
     </section>
   );
