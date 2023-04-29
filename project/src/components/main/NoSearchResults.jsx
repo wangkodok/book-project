@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setIsBoolean } from "store/State";
 
 // CSS 모듈
-import styled from "style/main/BookSearch.module.css";
+import styled from "style/main/NoSearchResults.module.css";
 
 function NoSearchResults({ save, bookData, addOnClick }) {
   let isBoolean = useDispatch();
