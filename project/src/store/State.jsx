@@ -18,9 +18,16 @@ let cartList = createSlice({
   name: "cartList",
   initialState: [],
   reducers: {
-    // 찜하기 클릭하면 찜목록에 추가
+    // 찜하기 클릭하면 찜목록에 추가하고 중복 상품 제거
     setCartListAdd(state, action) {
-      state.push(action.payload);
+      const existingItem = state.find(
+        (item) => item.isbn === action.payload.isbn
+      );
+      if (existingItem) {
+        existingItem.itemCount = existingItem.itemCount + 1;
+      } else {
+        state.push({ ...action.payload, itemCount: 1 });
+      }
     },
     // 수량 + 버튼
     setItemPlus(state, action) {
