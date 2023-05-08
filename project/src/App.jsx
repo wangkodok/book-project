@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { URL } from "config";
 
 // 리액트 훅
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // 컴포넌트
 import Header from "components/common/Header";
@@ -21,9 +21,9 @@ function App() {
     size: 3, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
   };
   const [query, setQuery] = useState("");
-  const [bookData, setBookData] = useState([]);
-  const [size, setSize] = useState(request.size);
   const [save, setSave] = useState("");
+  const [size, setSize] = useState("");
+  const [bookData, setBookData] = useState([]);
 
   // 가격 , (콤마) 재사용 함수
   const convertPrice = (price) => {
@@ -35,13 +35,11 @@ function App() {
     setQuery(event.target.value);
   };
 
-  // 더 보기 버튼
-  const addOnClick = () => {
-    console.log("더 보기 버튼");
-    console.log(save);
+  // api
+  const api = (page, size, query) => {
     fetch(
-      `${URL.KAKAO_API}&page=${request.page}&size=${size + 3}&query=${
-        save.trim() === "" ? "" : save
+      `${URL.KAKAO_API}&page=${page}&size=${size}&query=${
+        query.trim() === "" ? null : query
       }`,
       {
         method: "GET",
@@ -53,10 +51,20 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data.documents);
         setBookData(data.documents);
-        setSize(size + 3);
-        console.log(bookData);
+        setSize(size);
+        for (let index = 0; index < bookData.length; index++) {
+          bookData[index].itemCount = 1;
+        }
       });
+  };
+
+  // 더 보기 버튼
+  const addOnClick = () => {
+    console.log("더 보기 버튼");
+
+    api(request.page, size + request.size, save);
   };
 
   // 검색 버튼 (Enter Key)
@@ -73,35 +81,11 @@ function App() {
 
     setQuery(query);
     setSave(query);
-    setSize(3);
-    setBookData([]);
 
     if (query.trim() !== "") {
-      fetch(
-        `${URL.KAKAO_API}&page=${request.page}&size=${request.size}&query=${
-          query.trim() === "" ? null : query
-        }`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "KakaoAK 74ea4aa39a2b0be9171454168fe7ca86",
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setBookData(data.documents);
-          console.log(bookData);
-        });
+      api(request.page, request.size, query);
     }
   };
-  useEffect(() => {
-    console.log(bookData);
-    for (let index = 0; index < bookData.length; index++) {
-      bookData[index].itemCount = 1;
-    }
-  }, [size, save, bookData]);
 
   return (
     // 메인 페이지
