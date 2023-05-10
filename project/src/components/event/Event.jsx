@@ -8,8 +8,8 @@ import eventData from "eventData";
 import styled from "style/event/Event.module.css";
 
 function Event() {
-  let { id } = useParams();
-  let findProduct = eventData.find(function (obj) {
+  const { id } = useParams();
+  const findProduct = eventData.find(function (obj) {
     return obj.id === Number(id);
   });
 

@@ -8,7 +8,7 @@ import { setIsBoolean } from "store/State";
 import styled from "style/main/NoSearchResults.module.css";
 
 function NoSearchResults({ save, bookData, addOnClick }) {
-  let isBoolean = useDispatch();
+  const isBoolean = useDispatch();
 
   return (
     <>

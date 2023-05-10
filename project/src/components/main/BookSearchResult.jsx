@@ -11,7 +11,7 @@ import NoSearchResults from "components/main/NoSearchResults";
 import styled from "style/main/BookSearchResult.module.css";
 
 function BookSearchResult({ save, bookData, addOnClick, convertPrice }) {
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div className={styled.bookWrap}>

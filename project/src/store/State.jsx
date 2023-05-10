@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 // 참과 거짓
-let isBoolean = createSlice({
+const isBoolean = createSlice({
   name: "isBoolean",
   initialState: false,
   reducers: {
@@ -11,10 +11,10 @@ let isBoolean = createSlice({
   },
 });
 
-export let { setIsBoolean } = isBoolean.actions;
+export const { setIsBoolean } = isBoolean.actions;
 
 // 찜목록
-let cartList = createSlice({
+const cartList = createSlice({
   name: "cartList",
   initialState: [],
   reducers: {
@@ -40,7 +40,7 @@ let cartList = createSlice({
   },
 });
 
-export let { setCartListAdd, setItemPlus, setItemMinus } = cartList.actions;
+export const { setCartListAdd, setItemPlus, setItemMinus } = cartList.actions;
 
 export default configureStore({
   reducer: {

@@ -9,7 +9,7 @@ import styled from "style/cart/ShoppingBasket.module.css";
 
 function SalePage({ convertPrice }) {
   // 상품 찜목록
-  let cartList = useSelector((state) => {
+  const cartList = useSelector((state) => {
     return state.cartList;
   });
   console.log(cartList);
@@ -17,7 +17,7 @@ function SalePage({ convertPrice }) {
   const setQuantity = [...new Map(cartList.map((m) => [m.title, m])).values()];
   console.log(setQuantity);
 
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <section>

@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 import eventData from "eventData";
 
 function EventPage() {
-  let { id } = useParams();
-  let findProduct = eventData.find(function (obj) {
+  const { id } = useParams();
+  const findProduct = eventData.find(function (obj) {
     return obj.id === Number(id);
   });
   console.log(findProduct.detailPage);
