@@ -30,49 +30,82 @@ function SalePage({ convertPrice }) {
         }
       </div>
       <div className={styled.content}>
-        <ul className={styled.list}>
-          {cartList.map((value, i) => {
-            return (
-              <li key={i} className={styled.item}>
-                <div className={styled.contentList}>
-                  <figure>
-                    <img src={`${cartList[i].thumbnail}`} alt="" />
-                  </figure>
-                  <div className={styled.saleItem}>
-                    {typeof cartList[i] === "undefined" ? (
-                      "제목"
-                    ) : (
-                      <span>{`제목: ${cartList[i].title}`}</span>
-                    )}
-                    <span>{`가격: ${convertPrice(
-                      cartList[i].sale_price * cartList[i].itemCount
-                    )}`}</span>
-                    <span>{`수량: ${cartList[i].itemCount}`}</span>
-                    <button
-                      // - 버튼
-                      onClick={() => {
-                        if (cartList[i].itemCount === 1) {
-                          return;
-                        }
-                        dispatch(setItemMinus(i));
-                      }}
-                    >
-                      -
-                    </button>
-                    <button
-                      // + 버튼
-                      onClick={() => {
-                        dispatch(setItemPlus(i));
-                      }}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <div className={styled.list}>
+          <table>
+            {cartList.length === 0 ? null : (
+              <thead>
+                <tr>
+                  <th style={{ width: "50%", padding: "10px 0" }}>상품 정보</th>
+                  <th style={{ width: "20%", padding: "10px 0" }}>수량</th>
+                  <th style={{ width: "20%", padding: "10px 0" }}>금액</th>
+                  <th style={{ width: "10%", padding: "10px 0" }}>배송비</th>
+                </tr>
+              </thead>
+            )}
+            {cartList.map((value, i) => {
+              return (
+                <tbody key={i} className={styled.item}>
+                  <tr>
+                    <td>
+                      <div
+                        className={`${styled["product-common"]} ${styled["product-info"]}`}
+                      >
+                        <figure>
+                          <img src={`${cartList[i].thumbnail}`} alt="" />
+                        </figure>
+                        <div className={styled["product-title"]}>
+                          {typeof cartList[i] === "undefined" ? (
+                            "제목"
+                          ) : (
+                            <span>{`${cartList[i].title}`}</span>
+                          )}
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className={styled["product-common"]}>
+                        <div>
+                          <span>{`수량: ${cartList[i].itemCount}`}</span>
+                        </div>
+                        <div className={styled["count-btn"]}>
+                          <button
+                            // - 버튼
+                            onClick={() => {
+                              if (cartList[i].itemCount === 1) {
+                                return;
+                              }
+                              dispatch(setItemMinus(i));
+                            }}
+                          >
+                            -
+                          </button>
+                          <button
+                            // + 버튼
+                            onClick={() => {
+                              dispatch(setItemPlus(i));
+                            }}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div className={styled["product-common"]}>
+                        <span>{`가격: ${convertPrice(
+                          cartList[i].sale_price * cartList[i].itemCount
+                        )}원`}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className={styled["product-common"]}>무료 배송</div>
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
+          </table>
+        </div>
       </div>
     </section>
   );
