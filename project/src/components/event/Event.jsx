@@ -4,6 +4,9 @@ import { Outlet, Link, useParams } from "react-router-dom";
 // 오브젝트 데이터
 import eventData from "eventData";
 
+// 컴포넌트
+import SubPageTitle from "components/common/SubPageTitle";
+
 // CSS 모듈
 import styled from "style/event/Event.module.css";
 
@@ -16,12 +19,7 @@ function Event() {
   return (
     <section className={styled.event}>
       <div className={styled.inner}>
-        {
-          <div className={styled.title_wrap}>
-            <h2>이벤트</h2>
-            <p>재미있는 이벤트를 즐겨보세요.</p>
-          </div>
-        }
+        {SubPageTitle("이벤트", "재미있는 이벤트를 즐겨보세요.")}
       </div>
       <div className={styled.event_list_wrap}>
         <Outlet></Outlet> {/* 이벤트에서 해당하는 페이지 */}

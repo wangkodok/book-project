@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 // 상태 관리
 import { setItemPlus, setItemMinus } from "store/State";
 
+// 컴포넌트
+import SubPageTitle from "components/common/SubPageTitle";
+
 // CSS 모듈
 import styled from "style/cart/ShoppingBasket.module.css";
 
@@ -22,12 +25,7 @@ function SalePage({ convertPrice }) {
   return (
     <section>
       <div className={styled.inner}>
-        {
-          <div className={styled.title_wrap}>
-            <h2>찜목록들</h2>
-            <p>찜목록을 확인해주세요.</p>
-          </div>
-        }
+        {SubPageTitle("찜목록들", "찜목록을 확인해주세요.")}
       </div>
       <div className={styled.content}>
         <div className={styled.list}>
