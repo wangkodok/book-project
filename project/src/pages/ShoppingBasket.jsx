@@ -1,11 +1,11 @@
 // 리덕스
-import { useDispatch, useSelector } from "react-redux";
-
-// 상태 관리
-import { setItemPlus, setItemMinus } from "store/State";
+import { useSelector } from "react-redux";
 
 // 컴포넌트
 import SubPageTitle from "components/common/SubPageTitle";
+import ProductInfo from "pages/ProductInfo";
+import ProductCount from "pages/ProductCount";
+import ProductTotalPrice from "pages/ProductTotalPrice";
 
 // CSS 모듈
 import styled from "style/cart/ShoppingBasket.module.css";
@@ -15,12 +15,6 @@ function SalePage({ convertPrice }) {
   const cartList = useSelector((state) => {
     return state.cartList;
   });
-  console.log(cartList);
-
-  const setQuantity = [...new Map(cartList.map((m) => [m.title, m])).values()];
-  console.log(setQuantity);
-
-  const dispatch = useDispatch();
 
   return (
     <section>
@@ -45,57 +39,23 @@ function SalePage({ convertPrice }) {
                 <tbody key={i} className={styled.item}>
                   <tr>
                     <td>
-                      <div
-                        className={`${styled["product-common"]} ${styled["product-info"]}`}
-                      >
-                        <figure>
-                          <img src={`${cartList[i].thumbnail}`} alt="" />
-                        </figure>
-                        <div className={styled["product-title"]}>
-                          {typeof cartList[i] === "undefined" ? (
-                            "제목"
-                          ) : (
-                            <span>{`${cartList[i].title}`}</span>
-                          )}
-                        </div>
-                      </div>
+                      {/* 상품 정보 */}
+                      <ProductInfo cartList={cartList} i={i} />
                     </td>
                     <td>
-                      <div className={styled["product-common"]}>
-                        <div>
-                          <span>{`수량: ${cartList[i].itemCount}`}</span>
-                        </div>
-                        <div className={styled["count-btn"]}>
-                          <button
-                            // - 버튼
-                            onClick={() => {
-                              if (cartList[i].itemCount === 1) {
-                                return;
-                              }
-                              dispatch(setItemMinus(i));
-                            }}
-                          >
-                            -
-                          </button>
-                          <button
-                            // + 버튼
-                            onClick={() => {
-                              dispatch(setItemPlus(i));
-                            }}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
+                      {/* 수량 */}
+                      <ProductCount cartList={cartList} i={i} />
                     </td>
                     <td>
-                      <div className={styled["product-common"]}>
-                        <span>{`가격: ${convertPrice(
-                          cartList[i].sale_price * cartList[i].itemCount
-                        )}원`}</span>
-                      </div>
+                      {/* 금액 */}
+                      <ProductTotalPrice
+                        cartList={cartList}
+                        i={i}
+                        convertPrice={convertPrice}
+                      />
                     </td>
                     <td>
+                      {/* 배송비 */}
                       <div className={styled["product-common"]}>무료 배송</div>
                     </td>
                   </tr>
