@@ -14,6 +14,7 @@ import MainContainer from "pages/MainContainer";
 import Event from "components/event/Event";
 import EventDetailPage from "components/event/EventDetailPage";
 import ShoppingBasket from "pages/ShoppingBasket";
+import BookReport from "pages/BookReport";
 
 function App() {
   const request = {
@@ -123,6 +124,9 @@ function App() {
             <ShoppingBasket bookData={bookData} convertPrice={convertPrice} />
           }
         />
+
+        {/* 독후감 */}
+        <Route path="/BookReport" element={<BookReport />} />
       </Routes>
 
       {/* 푸터 */}

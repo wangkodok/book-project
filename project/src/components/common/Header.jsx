@@ -80,6 +80,16 @@ function Header() {
                       찜목록
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/BookReport"
+                      onClick={() => {
+                        setMenuClick(false);
+                      }}
+                    >
+                      독후감
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </HamburgerMenu>
