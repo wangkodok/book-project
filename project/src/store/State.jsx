@@ -42,9 +42,22 @@ const cartList = createSlice({
 
 export const { setCartListAdd, setItemPlus, setItemMinus } = cartList.actions;
 
+const bookReportList = createSlice({
+  name: "bookReportList",
+  initialState: [],
+  reducers: {
+    setBookReportListAdd(state, action) {
+      state.push(action.payload);
+    },
+  },
+});
+
+export const { setBookReportListAdd } = bookReportList.actions;
+
 export default configureStore({
   reducer: {
     isBoolean: isBoolean.reducer,
     cartList: cartList.reducer,
+    bookReportList: bookReportList.reducer,
   },
 });

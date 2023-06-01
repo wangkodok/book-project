@@ -25,6 +25,7 @@ function App() {
   const [save, setSave] = useState("");
   const [size, setSize] = useState("");
   const [bookData, setBookData] = useState([]);
+  const [copyBookData, setCopyBookData] = useState(bookData);
 
   // 가격 , (콤마) 재사용 함수
   const convertPrice = (price) => {
@@ -55,8 +56,9 @@ function App() {
         console.log(data.documents);
         setBookData(data.documents);
         setSize(size);
-        for (let index = 0; index < bookData.length; index++) {
-          bookData[index].itemCount = 1;
+
+        for (let index = 0; index < copyBookData.length; index++) {
+          copyBookData[index].itemCount = 1;
         }
       });
   };

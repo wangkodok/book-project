@@ -2,7 +2,7 @@
 import { useDispatch } from "react-redux";
 
 // 상태 관리
-import { setCartListAdd } from "store/State";
+import { setCartListAdd, setBookReportListAdd } from "store/State";
 
 // 컴포넌트
 import NoSearchResults from "components/main/NoSearchResults";
@@ -90,6 +90,13 @@ function BookSearchResult({ save, bookData, addOnClick, convertPrice }) {
                     ) : (
                       <em className={styled["item-sold-out"]}>품절</em>
                     )}
+                    <button
+                      onClick={() => {
+                        dispatch(setBookReportListAdd(bookData[i]));
+                      }}
+                    >
+                      독후감 작성
+                    </button>
                   </div>
                 </div>
 

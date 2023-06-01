@@ -1,8 +1,17 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Inner from "StyledCommon";
 
 function BookReport() {
+  const bookReportList = useSelector((state) => {
+    const set = new Set(state.bookReportList);
+    const uniqueArr = [...set];
+    return uniqueArr;
+  });
+
+  console.log(bookReportList);
+
   return (
     <>
       <SubPageBg>
@@ -15,16 +24,20 @@ function BookReport() {
           <ContentTitle>내가 읽었던 책 목록</ContentTitle>
           <ListWrapper>
             <List>
-              <Item>
-                <ImgWrap>
-                  <Img src="https://via.placeholder.com/120x174" alt="" />
-                </ImgWrap>
-                <LinkButtonWrap>
-                  <div>
-                    <LinkButton to="/">독후감 작성하기</LinkButton>
-                  </div>
-                </LinkButtonWrap>
-              </Item>
+              {bookReportList.map((value, i) => {
+                return (
+                  <Item key={i}>
+                    <ImgWrap>
+                      <Img src={bookReportList[i].thumbnail} alt="" />
+                    </ImgWrap>
+                    <LinkButtonWrap>
+                      <div>
+                        <LinkButton to="/">독후감 작성하기</LinkButton>
+                      </div>
+                    </LinkButtonWrap>
+                  </Item>
+                );
+              })}
             </List>
           </ListWrapper>
         </Inner>
