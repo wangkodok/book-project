@@ -46,7 +46,7 @@ function App() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "KakaoAK 74ea4aa39a2b0be9171454168fe7ca86",
+          Authorization: `KakaoAK ${process.env.REACT_APP_SERIAL_KEY}`,
         },
       }
     )
