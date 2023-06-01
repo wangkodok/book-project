@@ -39,7 +39,7 @@ function App() {
   // api
   const api = (page, size, query) => {
     fetch(
-      `${URL.KAKAO_API}&page=${page}&size=${size}&query=${
+      `${URL.KAKAO_BOOK}&page=${page}&size=${size}&query=${
         query.trim() === "" ? null : query
       }`,
       {
