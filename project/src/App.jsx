@@ -15,6 +15,7 @@ import Event from "components/event/Event";
 import EventDetailPage from "components/event/EventDetailPage";
 import ShoppingBasket from "pages/ShoppingBasket";
 import BookReport from "pages/BookReport";
+import BookReportPage from "pages/BookReportPage";
 
 function App() {
   const request = {
@@ -128,7 +129,9 @@ function App() {
         />
 
         {/* 독후감 */}
-        <Route path="/BookReport" element={<BookReport />} />
+        <Route path="/BookReport" element={<BookReport />}>
+          <Route path=":id" element={<BookReportPage />} />
+        </Route>
       </Routes>
 
       {/* 푸터 */}

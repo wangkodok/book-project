@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Inner from "StyledCommon";
 
@@ -12,6 +12,12 @@ function BookReport() {
 
   console.log(bookReportList);
 
+  const { id } = useParams();
+  const findProduct = bookReportList.find(function (obj) {
+    return obj.isbn === id;
+  });
+  console.log(findProduct);
+
   return (
     <>
       <SubPageBg>
@@ -22,24 +28,29 @@ function BookReport() {
       <SectionBookReport>
         <Inner padding="80px 0">
           <ContentTitle>내가 읽었던 책 목록</ContentTitle>
-          <ListWrapper>
-            <List>
-              {bookReportList.map((value, i) => {
-                return (
-                  <Item key={i}>
-                    <ImgWrap>
-                      <Img src={bookReportList[i].thumbnail} alt="" />
-                    </ImgWrap>
-                    <LinkButtonWrap>
-                      <div>
-                        <LinkButton to="/">독후감 작성하기</LinkButton>
-                      </div>
-                    </LinkButtonWrap>
-                  </Item>
-                );
-              })}
-            </List>
-          </ListWrapper>
+          <Outlet></Outlet> {/* 독후감 작성 페이지 */}
+          {findProduct !== undefined ? null : (
+            <ListWrapper>
+              <List>
+                {bookReportList.map((value, i) => {
+                  return (
+                    <Item key={i}>
+                      <ImgWrap>
+                        <Img src={bookReportList[i].thumbnail} alt="" />
+                      </ImgWrap>
+                      <LinkButtonWrap>
+                        <div>
+                          <LinkButton to={`${bookReportList[i].isbn}`}>
+                            독후감 작성하기
+                          </LinkButton>
+                        </div>
+                      </LinkButtonWrap>
+                    </Item>
+                  );
+                })}
+              </List>
+            </ListWrapper>
+          )}
         </Inner>
       </SectionBookReport>
     </>
