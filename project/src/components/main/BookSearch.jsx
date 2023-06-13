@@ -3,6 +3,7 @@ import styled from "style/main/BookSearch.module.css";
 
 // 컴포넌트
 import BookSearchResult from "./BookSearchResult";
+import BookOfTheMonth from "components/BookOfTheMonth";
 
 function BookSearch({
   onChange,
@@ -15,32 +16,35 @@ function BookSearch({
   convertPrice,
 }) {
   return (
-    <section>
-      <div className={styled.bookSearch}>
-        <h1>책을 검색해보세요.</h1>
-        <form className={styled.form} id="form" name="search">
-          <input
-            form="form"
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            value={query}
-            test="text"
-            placeholder="예) 리액트를 다루는 기술, 이것이 자바다"
-          />
-          <button onClick={onClick} type="button">
-            <span className="blind">검색</span>
-          </button>
-        </form>
-      </div>
+    <>
+      <BookOfTheMonth />
+      <section>
+        <div className={styled.bookSearch}>
+          <h1>책을 검색해보세요.</h1>
+          <form className={styled.form} id="form" name="search">
+            <input
+              form="form"
+              onChange={onChange}
+              onKeyDown={onKeyDown}
+              value={query}
+              test="text"
+              placeholder="예) 리액트를 다루는 기술, 이것이 자바다"
+            />
+            <button onClick={onClick} type="button">
+              <span className="blind">검색</span>
+            </button>
+          </form>
+        </div>
 
-      {/* 책 검색 결과 */}
-      <BookSearchResult
-        save={save}
-        bookData={bookData}
-        addOnClick={addOnClick}
-        convertPrice={convertPrice}
-      />
-    </section>
+        {/* 책 검색 결과 */}
+        <BookSearchResult
+          save={save}
+          bookData={bookData}
+          addOnClick={addOnClick}
+          convertPrice={convertPrice}
+        />
+      </section>
+    </>
   );
 }
 
