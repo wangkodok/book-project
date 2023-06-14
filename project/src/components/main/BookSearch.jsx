@@ -25,7 +25,7 @@ function BookSearch({
       <BookMd />
       <DeviceSync />
       <section>
-        <div className={styled.bookSearch}>
+        {/* <div className={styled.bookSearch}>
           <h1>책을 검색해보세요.</h1>
           <form className={styled.form} id="form" name="search">
             <input
@@ -40,15 +40,15 @@ function BookSearch({
               <span className="blind">검색</span>
             </button>
           </form>
-        </div>
+        </div> */}
 
         {/* 책 검색 결과 */}
-        <BookSearchResult
+        {/* <BookSearchResult
           save={save}
           bookData={bookData}
           addOnClick={addOnClick}
           convertPrice={convertPrice}
-        />
+        /> */}
       </section>
     </>
   );

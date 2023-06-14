@@ -31,7 +31,7 @@ function Content({
       />
 
       {/* 이벤트 배너 */}
-      <EventBanner />
+      {/* <EventBanner /> */}
     </>
   );
 }
