@@ -5,6 +5,7 @@ import styled from "style/main/BookSearch.module.css";
 import BookSearchResult from "./BookSearchResult";
 import BookOfTheMonth from "components/BookOfTheMonth";
 import Banner from "components/Banner";
+import BookMd from "components/BookMd";
 
 function BookSearch({
   onChange,
@@ -20,6 +21,7 @@ function BookSearch({
     <>
       <BookOfTheMonth />
       <Banner />
+      <BookMd />
       <section>
         <div className={styled.bookSearch}>
           <h1>책을 검색해보세요.</h1>
