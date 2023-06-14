@@ -6,6 +6,7 @@ import BookSearchResult from "./BookSearchResult";
 import BookOfTheMonth from "components/BookOfTheMonth";
 import Banner from "components/Banner";
 import BookMd from "components/BookMd";
+import DeviceSync from "components/DeviceSync";
 
 function BookSearch({
   onChange,
@@ -22,6 +23,7 @@ function BookSearch({
       <BookOfTheMonth />
       <Banner />
       <BookMd />
+      <DeviceSync />
       <section>
         <div className={styled.bookSearch}>
           <h1>책을 검색해보세요.</h1>
