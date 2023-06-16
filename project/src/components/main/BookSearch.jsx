@@ -1,5 +1,5 @@
 // CSS 모듈
-import styled from "style/main/BookSearch.module.css";
+// import styled from "style/main/BookSearch.module.css";
 
 // 컴포넌트
 import BookSearchResult from "./BookSearchResult";

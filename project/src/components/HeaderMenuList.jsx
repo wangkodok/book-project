@@ -15,7 +15,7 @@ export default function HeaderMenuList() {
         </Link>
       </li>
       <li className="item">
-        <Link href="/" className="link">
+        <Link to="/BookRecord" className="link">
           책기록
         </Link>
       </li>

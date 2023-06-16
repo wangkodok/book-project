@@ -16,6 +16,7 @@ import EventDetailPage from "components/event/EventDetailPage";
 import ShoppingBasket from "pages/ShoppingBasket";
 import BookReport from "pages/BookReport";
 import BookReportPage from "pages/BookReportPage";
+import BookRecordPage from "pages/BookRecordPage";
 
 function App() {
   const request = {
@@ -132,6 +133,23 @@ function App() {
         <Route path="/BookReport" element={<BookReport />}>
           <Route path=":id" element={<BookReportPage />} />
         </Route>
+
+        {/* 책기록 */}
+        <Route
+          path="/BookRecord"
+          element={
+            <BookRecordPage
+              onChange={onChange}
+              onKeyDown={onKeyDown}
+              value={query}
+              onClick={onClick}
+              save={save}
+              bookData={bookData}
+              addOnClick={addOnClick}
+              convertPrice={convertPrice}
+            />
+          }
+        ></Route>
       </Routes>
 
       {/* 푸터 */}
