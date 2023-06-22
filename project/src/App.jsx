@@ -17,6 +17,8 @@ import ShoppingBasket from "pages/ShoppingBasket";
 import BookReport from "pages/BookReport";
 import BookReportPage from "pages/BookReportPage";
 import BookRecordPage from "pages/BookRecordPage";
+import BookList from "pages/BookList";
+import BookListPage from "pages/BookListPage";
 
 function App() {
   const request = {
@@ -150,6 +152,10 @@ function App() {
             />
           }
         ></Route>
+
+        <Route path="/BookRecord/BookList" element={<BookList />}>
+          <Route path=":id" element={<BookListPage />} />
+        </Route>
       </Routes>
 
       {/* 푸터 */}

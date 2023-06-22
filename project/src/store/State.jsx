@@ -54,10 +54,24 @@ const bookReportList = createSlice({
 
 export const { setBookReportListAdd } = bookReportList.actions;
 
+// 버튼 참과 거짓
+const isBtnBoolean = createSlice({
+  name: "isBoolean",
+  initialState: false,
+  reducers: {
+    setIsBtnBoolean() {
+      return true;
+    },
+  },
+});
+
+export const { setIsBtnBoolean } = isBtnBoolean.actions;
+
 export default configureStore({
   reducer: {
     isBoolean: isBoolean.reducer,
     cartList: cartList.reducer,
     bookReportList: bookReportList.reducer,
+    isBtnBoolean: isBtnBoolean.reducer,
   },
 });

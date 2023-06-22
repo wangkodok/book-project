@@ -2,6 +2,7 @@ import SubPageVisual from "components/SubPageVisual";
 import BookSearchResult from "components/main/BookSearchResult";
 import styled from "styled-components";
 import Search from "assets/ico_search.png";
+import { Outlet } from "react-router-dom";
 
 export default function BookRecordPage({
   onChange,
