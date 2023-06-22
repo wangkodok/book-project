@@ -19,6 +19,7 @@ import BookReportPage from "pages/BookReportPage";
 import BookRecordPage from "pages/BookRecordPage";
 import BookList from "pages/BookList";
 import BookListPage from "pages/BookListPage";
+import Login from "pages/Login";
 
 function App() {
   const request = {
@@ -156,6 +157,8 @@ function App() {
         <Route path="/BookRecord/BookList" element={<BookList />}>
           <Route path=":id" element={<BookListPage />} />
         </Route>
+
+        <Route path="/Login" element={<Login />} />
       </Routes>
 
       {/* 푸터 */}

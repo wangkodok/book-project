@@ -6,7 +6,7 @@ export default function HeaderUtil() {
     <UtilWrapper>
       <ul className="list">
         <li className="item">
-          <Link to="/" className="link">
+          <Link to="/Login" className="link">
             로그인/회원가입
           </Link>
         </li>
