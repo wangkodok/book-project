@@ -11,7 +11,7 @@ export default function HeaderUtil() {
           </Link>
         </li>
         <li className="item">
-          <Link to="/" className="link">
+          <Link to="/ListBookSites" className="link">
             서점사이트보기
           </Link>
         </li>
