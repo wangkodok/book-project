@@ -1,49 +1,52 @@
 import Inner from "StyledCommon";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import BookMoth from "assets/book_moth.jpg";
-import BookRating from "components/BookRating";
+import { useState } from "react";
+import { ListItem00, ListItem01, ListItem02 } from "./ListItem00";
 
 export default function BookOfTheMonth() {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <SectionBookOfTheMonth>
       <Inner padding="80px 0">
         <MainContentTitle>이달의 책</MainContentTitle>
         <BookOfTheMonthInfo>
-          <div className="common-month month">
-            <div className="info-wrap">
-              <figure className="moth-book">
-                <img src={BookMoth} alt="" />
-              </figure>
-              <div className="book-info">
-                <h4 className="tit-h4">자바스크립트 핵심 가이드</h4>
-                <BookRating />
-                <p className="desc">
-                  야후의 선임 자바스크립트 아키텍트 더글라스 크락포드의
-                  『자바스크립트 핵심 가이드』. 자바스크립트를 우연히...
-                </p>
-              </div>
-            </div>
-          </div>
-
+          {/* 왼쪽 */}
+          <TabContent activeTab={activeTab} />
           {/* 오른쪽 */}
           <ol className="common-month">
-            <li className="item on">
-              <ItemLink to="/">
+            <li className={`item ${activeTab === 0 ? "on" : ""}`}>
+              <ItemLink
+                to="/"
+                onClick={() => {
+                  setActiveTab(0);
+                }}
+              >
                 <strong className="order">1</strong>
                 <p className="order-desc">자바스크립트 핵심 가이드(더글...</p>
               </ItemLink>
             </li>
-            <li className="item">
-              <ItemLink to="/">
+            <li className={`item ${activeTab === 1 ? "on" : ""}`}>
+              <ItemLink
+                to="/"
+                onClick={() => {
+                  setActiveTab(1);
+                }}
+              >
                 <strong className="order">2</strong>
-                <p className="order-desc">자바스크립트 핵심 가이드(더글...</p>
+                <p className="order-desc">더 괜찮은 웹 개발자가 되기 위한...</p>
               </ItemLink>
             </li>
-            <li className="item">
-              <ItemLink to="/">
+            <li className={`item ${activeTab === 2 ? "on" : ""}`}>
+              <ItemLink
+                to="/"
+                onClick={() => {
+                  setActiveTab(2);
+                }}
+              >
                 <strong className="order">3</strong>
-                <p className="order-desc">자바스크립트 핵심 가이드(더글...</p>
+                <p className="order-desc">모던 자바스크립트 Deep Dive</p>
               </ItemLink>
             </li>
           </ol>
@@ -51,6 +54,10 @@ export default function BookOfTheMonth() {
       </Inner>
     </SectionBookOfTheMonth>
   );
+}
+
+function TabContent({ activeTab }) {
+  return [<ListItem00 />, <ListItem01 />, <ListItem02 />][activeTab];
 }
 
 const MainContentTitle = styled.h3`
