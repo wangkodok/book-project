@@ -5,6 +5,8 @@ import { setCartListAdd, setBookReportListAdd } from "store/State";
 // 컴포넌트
 import NoSearchResults from "components/main/NoSearchResults";
 import Modal from "components/Modal";
+import ButtonCheck from "components/ui/atoms/ButtonCheck";
+
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
 import { useState } from "react";
@@ -148,7 +150,7 @@ function BookSearchResult({ save, bookData, addOnClick, convertPrice }) {
                   {/* {`${bookData[i].sale_price}` < 0 ? (
                   <strong className={styled.md}>품절</strong>
                 ) : null} */}
-                  <button className={styled["check"]}></button>
+                  <ButtonCheck></ButtonCheck>
                 </li>
               );
             })}

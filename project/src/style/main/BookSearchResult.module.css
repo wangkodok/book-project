@@ -56,15 +56,6 @@
   font-size: 12px;
 }
 
-.bookList .item .check {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  border: 1px solid #000;
-  width: 20px;
-  height: 20px;
-}
-
 .boxContent {
   display: flex;
   align-content: flex-end;
