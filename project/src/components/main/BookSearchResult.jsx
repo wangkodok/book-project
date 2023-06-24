@@ -7,6 +7,7 @@ import { setBookReportListAdd } from "store/State";
 // 컴포넌트
 import Modal from "components/Modal";
 import ButtonCheck from "components/ui/atoms/ButtonCheck";
+import ButtonSave from "components/ui/atoms/ButtonSave";
 
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
@@ -61,26 +62,8 @@ export default function BookSearchResult({ save, bookData }) {
                       </p>
                     </div>
                     <div className={styled.sale}>
-                      <button
-                        onClick={() => {
-                          dispatch(setBookReportListAdd(bookData[i]));
-                          console.log(bookData[i].title);
-                          let copy = [...modal];
-                          copy[i] = true;
-                          setModal(copy);
-                        }}
-                        className={styled["btn-book-save"]}
-                      >
-                        읽었던 책 저장
-                      </button>
-                      {modal[i] === true ? (
-                        <Modal
-                          bookData={bookData}
-                          modal={modal}
-                          setModal={setModal}
-                          i={i}
-                        />
-                      ) : null}
+                      <ButtonSave bookData={bookData} i={i}></ButtonSave>
+
                       <button className={styled["btn-bookstore-find"]}>
                         서점 찾기
                       </button>
