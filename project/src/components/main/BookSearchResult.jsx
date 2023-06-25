@@ -1,19 +1,10 @@
-// 리덕스
-import { useDispatch } from "react-redux";
-
-// 상태 관리
-import { setBookReportListAdd } from "store/State";
-
 // 컴포넌트
-import Modal from "components/Modal";
 import ButtonCheck from "components/ui/atoms/ButtonCheck";
 import ButtonSave from "components/ui/atoms/ButtonSave";
 import ButtonClick from "components/ui/atoms/ButtonClick";
 
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // 책 검색 후 목록에 나오는 배지
 function Price({ bookData, i }) {
@@ -25,11 +16,6 @@ function Price({ bookData, i }) {
 }
 
 export default function BookSearchResult({ save, bookData }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const [modal, setModal] = useState([false, false, false]);
-
   return (
     <>
       <div className={styled.bookWrap}>
@@ -51,7 +37,6 @@ export default function BookSearchResult({ save, bookData }) {
                   <div className={styled.boxContent}>
                     <div>
                       <Price bookData={bookData} i={i} />
-
                       <strong className={styled.title}>
                         {bookData[i].title}
                       </strong>
@@ -69,14 +54,6 @@ export default function BookSearchResult({ save, bookData }) {
                         color="#b8883b"
                         boxShadow="0 0 0 1px #b8883b inset"
                       />
-                      <button
-                        onClick={() => {
-                          navigate("/BookRecord/page");
-                        }}
-                        className={styled["btn-bookstore-find"]}
-                      >
-                        페이지 이동
-                      </button>
                     </div>
                   </div>
                   <ButtonCheck></ButtonCheck>
