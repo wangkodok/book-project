@@ -8,6 +8,7 @@ import { setBookReportListAdd } from "store/State";
 import Modal from "components/Modal";
 import ButtonCheck from "components/ui/atoms/ButtonCheck";
 import ButtonSave from "components/ui/atoms/ButtonSave";
+import ButtonClick from "components/ui/atoms/ButtonClick";
 
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
@@ -63,11 +64,11 @@ export default function BookSearchResult({ save, bookData }) {
                     </div>
                     <div className={styled.sale}>
                       <ButtonSave bookData={bookData} i={i}></ButtonSave>
-
-                      <button className={styled["btn-bookstore-find"]}>
-                        서점 찾기
-                      </button>
-
+                      <ButtonClick
+                        innerText="서점 찾기"
+                        color="#b8883b"
+                        boxShadow="0 0 0 1px #b8883b inset"
+                      />
                       <button
                         onClick={() => {
                           navigate("/BookRecord/page");
