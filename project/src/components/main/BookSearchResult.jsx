@@ -2,6 +2,7 @@
 import ButtonCheck from "components/ui/atoms/ButtonCheck";
 import ButtonSave from "components/ui/atoms/ButtonSave";
 import ButtonClick from "components/ui/atoms/ButtonClick";
+import Image from "components/ui/atoms/Image";
 
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
@@ -24,16 +25,14 @@ export default function BookSearchResult({ save, bookData }) {
             {bookData.map((value, i) => {
               return (
                 <li className={styled.item} key={i}>
-                  <figure>
-                    <img
-                      src={
-                        bookData[i].thumbnail === ""
-                          ? "https://via.placeholder.com/120x174"
-                          : bookData[i].thumbnail
-                      }
-                      alt={bookData[i].title}
-                    />
-                  </figure>
+                  <Image
+                    src={
+                      bookData[i].thumbnail === ""
+                        ? "https://via.placeholder.com/120x174"
+                        : bookData[i].thumbnail
+                    }
+                    alt={bookData[i].title}
+                  />
                   <div className={styled.boxContent}>
                     <div>
                       <Price bookData={bookData} i={i} />
