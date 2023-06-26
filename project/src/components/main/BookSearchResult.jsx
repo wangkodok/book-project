@@ -65,7 +65,12 @@ export default function BookSearchResult({ save, bookData }) {
           <p>표시하고 “내 서재 저장” 해보세요.</p>
         </div>
         <div className={styled["book-save"]}>
-          <button>내 서재 저장</button>
+          <ButtonClick
+            innerText="내 서재 저장"
+            color="#000"
+            border="1px solid #000"
+            padding="9px 34px"
+          />
         </div>
       </div>
     </>

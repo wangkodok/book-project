@@ -8,6 +8,7 @@ export default function ButtonClick({
   margin,
   color,
   backgroundColor,
+  border,
   boxShadow,
 }) {
   return (
@@ -17,6 +18,7 @@ export default function ButtonClick({
       margin={margin}
       color={color}
       backgroundColor={backgroundColor}
+      border={border}
       boxShadow={boxShadow}
     >
       {innerText}
@@ -29,6 +31,7 @@ const Button = styled.button`
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
+  border: ${(props) => props.border};
   box-shadow: ${(props) => props.boxShadow};
 `;
 
