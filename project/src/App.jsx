@@ -21,6 +21,7 @@ import BookList from "pages/BookList";
 import BookListPage from "pages/BookListPage";
 import Login from "pages/Login";
 import ListBookSites from "pages/ListBookSites";
+import GuidePage from "pages/GuidePage";
 
 function App() {
   const request = {
@@ -162,6 +163,8 @@ function App() {
         <Route path="/Login" element={<Login />} />
 
         <Route path="/ListBookSites" element={<ListBookSites />} />
+
+        <Route path="/guide" element={<GuidePage />} />
       </Routes>
 
       {/* 푸터 */}

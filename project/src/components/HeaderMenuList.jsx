@@ -30,7 +30,7 @@ export default function HeaderMenuList() {
         </Link>
       </li>
       <li className="item">
-        <Link href="/" className="link">
+        <Link to="/guide" className="link">
           서점안내
         </Link>
       </li>
