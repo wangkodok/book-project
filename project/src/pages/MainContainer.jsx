@@ -1,5 +1,5 @@
 // 컴포넌트
-import VisualSlider from "components/main/VisualSlider";
+import Banner from "components/ui/organisms/Banner";
 import BookSearch from "components/main/BookSearch";
 import EventBanner from "components/main/EventBanner";
 
@@ -15,8 +15,8 @@ function Content({
 }) {
   return (
     <>
-      {/* 비주얼 슬라이드 */}
-      <VisualSlider />
+      {/* 메인 본문 배너 */}
+      <Banner />
 
       {/* 책 검색 */}
       <BookSearch
