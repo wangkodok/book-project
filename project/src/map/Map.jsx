@@ -21,6 +21,8 @@ const MapContainer = () => {
   const [Places, setPlaces] = useState([]);
 
   useEffect(() => {
+    if (Place === "") return;
+
     const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
     const markers = [];
@@ -103,46 +105,66 @@ const MapContainer = () => {
   }, [Place]);
 
   return (
-    <MapContent>
-      <form className="inputForm" onSubmit={handleSubmit}>
-        <input
-          placeholder="예) 서울 강남구 교보문고"
-          onChange={onChange}
-          defaultValue={InputText}
-        />
-        <button type="submit">검색</button>
-      </form>
-      <div className="map-content">
-        <div
-          id="myMap"
-          style={{
-            width: "50%",
-            height: "500px",
-          }}
-        ></div>
-        <div id="result-list">
-          {Places.map((item, i) => (
-            <div key={i} id="result-list-item">
-              {/* 지도 검색 목록 번호 */}
-              {/* <div>{i + 1}</div> */}
-              <div>
-                <div>{item.place_name}</div>
-                {item.road_address_name ? (
+    <>
+      <MapContent>
+        <form className="inputForm" onSubmit={handleSubmit}>
+          <input
+            placeholder="예) 서울 강남구 교보문고"
+            onChange={onChange}
+            defaultValue={InputText}
+          />
+          <button type="submit">검색</button>
+        </form>
+        {Place === "" ? (
+          <div
+            id="myMap"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              height: "500px",
+              fontSize: "24px",
+              backgroundColor: "#eee",
+            }}
+          >
+            검색어를 입력하지 않아 결과가 없습니다.
+          </div>
+        ) : (
+          <div className="map-content">
+            <div
+              id="myMap"
+              style={{
+                width: "50%",
+                height: "500px",
+              }}
+            ></div>
+
+            <div id="result-list">
+              {Places.map((item, i) => (
+                <div key={i} id="result-list-item">
+                  {/* 지도 검색 목록 번호 */}
+                  {/* <div>{i + 1}</div> */}
                   <div>
-                    <div>{item.road_address_name}</div>
-                    <div>{item.address_name}</div>
+                    <div>{item.place_name}</div>
+                    {item.road_address_name ? (
+                      <div>
+                        <div>{item.road_address_name}</div>
+                        <div>{item.address_name}</div>
+                      </div>
+                    ) : (
+                      <div>{item.address_name}</div>
+                    )}
+                    <div>{item.phone}</div>
                   </div>
-                ) : (
-                  <div>{item.address_name}</div>
-                )}
-                <div>{item.phone}</div>
-              </div>
+                </div>
+              ))}
+              <div id="pagination"></div>
             </div>
-          ))}
-          <div id="pagination"></div>
-        </div>
-      </div>
-    </MapContent>
+          </div>
+        )}
+      </MapContent>
+    </>
   );
 };
 
