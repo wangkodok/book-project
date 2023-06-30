@@ -3,11 +3,14 @@ import MdBook01 from "assets/md_book_01.jpg";
 import MdBook02 from "assets/md_book_02.jpg";
 import styled from "styled-components";
 
+// 컴포넌트
+import SectionTitle from "components/ui/atoms/SectionTitle";
+
 export default function BookMd() {
   return (
     <SectionBookMd>
       <Inner padding="80px 0">
-        <h3 className="title_h3">MD 추천</h3>
+        <SectionTitle innerText="MD 추천"></SectionTitle>
         <ul className="list">
           <li className="item">
             <div className="text-wrap">
@@ -40,12 +43,6 @@ export default function BookMd() {
 }
 
 const SectionBookMd = styled.section`
-  .title_h3 {
-    font-size: 28px;
-    font-weight: 900;
-    margin: 0 0 40px 0;
-  }
-
   .list {
     display: flex;
     justify-content: space-between;

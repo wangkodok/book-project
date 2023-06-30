@@ -4,13 +4,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ListItem00, ListItem01, ListItem02 } from "./ListItem00";
 
+// 컴포넌트
+import SectionTitle from "components/ui/atoms/SectionTitle";
+
 export default function BookOfTheMonth() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
     <SectionBookOfTheMonth>
       <Inner padding="80px 0">
-        <MainContentTitle>이달의 책</MainContentTitle>
+        <SectionTitle innerText="이달의 책"></SectionTitle>
         <BookOfTheMonthInfo>
           {/* 왼쪽 */}
           <TabContent activeTab={activeTab} />
@@ -59,13 +62,6 @@ export default function BookOfTheMonth() {
 function TabContent({ activeTab }) {
   return [<ListItem00 />, <ListItem01 />, <ListItem02 />][activeTab];
 }
-
-const MainContentTitle = styled.h3`
-  line-height: 41px;
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0 0 40px 0;
-`;
 
 const ItemLink = styled(Link)`
   padding: 45px 0;
