@@ -5,7 +5,7 @@
 import BookSearchResult from "./BookSearchResult";
 import BookOfTheMonth from "components/BookOfTheMonth";
 import Banner from "components/Banner";
-import BookMd from "components/BookMd";
+import BookMd from "components/ui/organisms/BookMd";
 import DeviceSync from "components/DeviceSync";
 
 function BookSearch({
