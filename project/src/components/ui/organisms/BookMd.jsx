@@ -10,7 +10,7 @@ export default function BookMd() {
   return (
     <SectionBookMd>
       <Inner padding="80px 0">
-        <SectionTitle innerText="MD 추천"></SectionTitle>
+        <SectionTitle innerText="MD가 책 추천"></SectionTitle>
         <ul className="list">
           <li className="item">
             <div className="text-wrap">
