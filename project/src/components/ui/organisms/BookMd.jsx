@@ -1,9 +1,13 @@
-import Inner from "StyledCommon";
-import MdBook01 from "assets/md_book_01.jpg";
-import MdBook02 from "assets/md_book_02.jpg";
+// 스타일 컴포넌트
 import styled from "styled-components";
 
+// 이미지
+import Md_Book_01 from "assets/md_book_01.jpg";
+import Md_Book_02 from "assets/md_book_02.jpg";
+
 // 컴포넌트
+import Inner from "StyledCommon";
+import Image from "components/ui/atoms/Image";
 import SectionTitle from "components/ui/atoms/SectionTitle";
 
 export default function BookMd() {
@@ -20,9 +24,7 @@ export default function BookMd() {
                 <br /> 상처받지 않을 것
               </p>
             </div>
-            <figure>
-              <img src={MdBook01} alt="" />
-            </figure>
+            <Image src={Md_Book_01} />
           </li>
           <li className="item">
             <div className="text-wrap">
@@ -32,9 +34,7 @@ export default function BookMd() {
                 <br /> 리커버 에디션
               </p>
             </div>
-            <figure>
-              <img src={MdBook02} alt="" />
-            </figure>
+            <Image src={Md_Book_02} />
           </li>
         </ul>
       </Inner>
@@ -46,16 +46,16 @@ const SectionBookMd = styled.section`
   .list {
     display: flex;
     justify-content: space-between;
-  }
 
-  .item {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    width: calc(50% - 14px);
-    padding: 48px;
-    box-sizing: border-box;
-    background-color: #fbe5d3;
+    .item {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: calc(50% - 14px);
+      padding: 48px;
+      box-sizing: border-box;
+      background-color: #fbe5d3;
+    }
   }
 
   .text-wrap {
