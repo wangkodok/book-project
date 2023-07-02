@@ -8,6 +8,10 @@ export default function ButtonClick({
   margin,
   color,
   backgroundColor,
+  backgroundImage,
+  backgroundRepeat,
+  backgroundSize,
+  backgroundPosition,
   border,
   boxShadow,
 }) {
@@ -18,6 +22,10 @@ export default function ButtonClick({
       margin={margin}
       color={color}
       backgroundColor={backgroundColor}
+      backgroundImage={backgroundImage}
+      backgroundRepeat={backgroundRepeat}
+      backgroundSize={backgroundSize}
+      backgroundPosition={backgroundPosition}
       border={border}
       boxShadow={boxShadow}
     >
@@ -31,6 +39,10 @@ const Button = styled.button`
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
+  background-image: ${(props) => props.backgroundImage};
+  background-repeat: ${(props) => props.backgroundRepeat};
+  background-size: ${(props) => props.backgroundSize};
+  background-position: ${(props) => props.backgroundPosition};
   border: ${(props) => props.border};
   box-shadow: ${(props) => props.boxShadow};
 `;
