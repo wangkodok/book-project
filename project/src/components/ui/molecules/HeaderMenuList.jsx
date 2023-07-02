@@ -4,16 +4,16 @@ import styled from "styled-components";
 export default function HeaderMenuList() {
   return (
     <List className="list">
-      <li className="item">
+      {/* <li className="item">
         <Link href="/" className="link">
           사용안내
         </Link>
-      </li>
-      <li className="item">
+      </li> */}
+      {/* <li className="item">
         <Link href="/" className="link">
           내서재
         </Link>
-      </li>
+      </li> */}
       <li className="item">
         <Link to="/BookRecord" className="link">
           책기록
@@ -24,11 +24,11 @@ export default function HeaderMenuList() {
           이벤트
         </Link>
       </li>
-      <li className="item">
+      {/* <li className="item">
         <Link href="/" className="link">
           AI추천서비스
         </Link>
-      </li>
+      </li> */}
       <li className="item">
         <Link to="/guide" className="link">
           서점안내
