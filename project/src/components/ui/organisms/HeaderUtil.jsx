@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function HeaderUtil() {
   return (
-    <UtilWrapper>
+    <Util>
       <ul className="list">
         <li className="item">
           <Link to="/Login" className="link">
@@ -16,11 +16,11 @@ export default function HeaderUtil() {
           </Link>
         </li>
       </ul>
-    </UtilWrapper>
+    </Util>
   );
 }
 
-const UtilWrapper = styled.div`
+const Util = styled.div`
   .list {
     display: flex;
 
@@ -37,14 +37,3 @@ const UtilWrapper = styled.div`
     }
   }
 `;
-
-// let List = styled.ul``;
-
-// let Item = styled.li`
-//   > a {
-//   }
-
-//   :last-child {
-//     margin: 0;
-//   }
-// `;
