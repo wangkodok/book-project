@@ -1,5 +1,5 @@
 import Inner from "StyledCommon";
-import SubPageVisual from "components/SubPageVisual";
+import SubPageVisual from "components/ui/organisms/SubPageVisual";
 import { useSelector } from "react-redux";
 import { Link, Outlet, useParams } from "react-router-dom";
 import styled from "styled-components";

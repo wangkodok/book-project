@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 
 // 컴포넌트
-import HeaderUser from "components/HeaderUser";
-import HeaderMenu from "components/HeaderMenu";
+import HeaderUser from "components/ui/organisms/HeaderUser";
+import HeaderMenu from "components/ui/organisms/HeaderMenu";
 
 // 스타일 컴포넌트
 // import styled from "styled-components";

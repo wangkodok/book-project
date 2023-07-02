@@ -3,6 +3,7 @@ import ButtonCheck from "components/ui/atoms/ButtonCheck";
 import ButtonSave from "components/ui/atoms/ButtonSave";
 import ButtonClick from "components/ui/atoms/ButtonClick";
 import Image from "components/ui/atoms/Image";
+import Badge from "components/ui/atoms/Badge";
 
 // CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
@@ -10,9 +11,9 @@ import styled from "style/main/BookSearchResult.module.css";
 // 책 검색 후 목록에 나오는 배지
 function Price({ bookData, i }) {
   if (bookData[i].price.toString() > 20000) {
-    return <strong className={styled.md}>MD추천</strong>;
+    return <Badge innerText="MD추천"></Badge>;
   } else {
-    return <strong className={styled.md}>Book</strong>;
+    return <Badge innerText="Book"></Badge>;
   }
 }
 
@@ -36,9 +37,7 @@ export default function BookSearchResult({ save, bookData }) {
                   <div className={styled.boxContent}>
                     <div>
                       <Price bookData={bookData} i={i} />
-                      <strong className={styled.title}>
-                        {bookData[i].title}
-                      </strong>
+                      <h4 className={styled.title}>{bookData[i].title}</h4>
                       <p className={styled.bookTitle}>
                         {" "}
                         {bookData[i].contents === ""

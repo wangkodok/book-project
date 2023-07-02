@@ -1,5 +1,5 @@
 import AllMenu from "assets/all-menu.png";
-import HeaderMenuList from "components/HeaderMenuList";
+import HeaderMenuList from "components/ui/molecules/HeaderMenuList";
 
 import styled from "styled-components";
 

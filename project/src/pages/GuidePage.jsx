@@ -1,5 +1,5 @@
 import Inner from "StyledCommon";
-import SubPageVisual from "components/SubPageVisual";
+import SubPageVisual from "components/ui/organisms/SubPageVisual";
 import Button from "components/ui/atoms/ButtonClick";
 import styled from "styled-components";
 import MapContainer from "map/Map";

@@ -4,7 +4,7 @@ import BookMoth_01 from "assets/book_moth_01.jpg";
 import BookMoth_02 from "assets/book_moth_02.jpg";
 
 // 컴포넌트
-import BookRating from "components/BookRating";
+import BookRating from "components/ui/organisms/BookRating";
 import Image from "components/ui/atoms/Image";
 
 function ListItem00() {

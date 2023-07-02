@@ -10,7 +10,7 @@ import { useState } from "react";
 // 컴포넌트
 import Header from "components/common/Header";
 import Footer from "components/common/Footer";
-import MainContainer from "pages/MainContainer";
+import Main from "pages/Main";
 import Event from "components/event/Event";
 import EventDetailPage from "components/event/EventDetailPage";
 import ShoppingBasket from "pages/ShoppingBasket";
@@ -105,21 +105,7 @@ function App() {
 
       <Routes>
         {/* 메인 */}
-        <Route
-          path="/"
-          element={
-            <MainContainer
-              onChange={onChange}
-              onKeyDown={onKeyDown}
-              query={query}
-              onClick={onClick}
-              save={save}
-              bookData={bookData}
-              addOnClick={addOnClick}
-              convertPrice={convertPrice}
-            />
-          }
-        />
+        <Route path="/" element={<Main />} />
 
         {/* 이벤트 */}
         <Route path="/event" element={<Event />}>

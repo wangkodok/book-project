@@ -1,5 +1,5 @@
-import SubPageVisual from "components/SubPageVisual";
-import BookSearchResult from "components/main/BookSearchResult";
+import SubPageVisual from "components/ui/organisms/SubPageVisual";
+import BookSearchResult from "components/ui/organisms/BookSearchResult";
 import styled from "styled-components";
 import Search from "assets/ico_search.png";
 import { Outlet } from "react-router-dom";

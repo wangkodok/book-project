@@ -1,5 +1,5 @@
-import Logo from "components/common/Logo";
-import HeaderUtil from "components/HeaderUtil";
+import Logo from "components/ui/atoms/Logo";
+import HeaderUtil from "components/ui/organisms/HeaderUtil";
 import styled from "styled-components";
 
 export default function HeaderUser({ setMenuClick }) {

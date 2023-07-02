@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setBookReportListAdd } from "store/State";
 
 // 컴포넌트
-import Modal from "components/Modal";
+import Modal from "components/ui/organisms/Modal";
 
 // 스타일 컴포넌트
 import styled from "styled-components";
