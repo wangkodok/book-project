@@ -1,6 +1,6 @@
 import { ListBookSiteData } from "ListBookSiteData";
 import Inner from "StyledCommon";
-import SubPageVisual from "components/ui/organisms/SubPageVisual";
+import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 

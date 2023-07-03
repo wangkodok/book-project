@@ -1,4 +1,4 @@
-import SubPageVisual from "components/ui/organisms/SubPageVisual";
+import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import BookSearchResult from "components/ui/organisms/BookSearchResult";
 import styled from "styled-components";
 import Search from "assets/ico_search.png";
