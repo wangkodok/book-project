@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.617ff13c.css",
-    "main.js": "/static/js/main.5656623c.js",
+    "main.css": "/static/css/main.ee66833d.css",
+    "main.js": "/static/js/main.5e53e06d.js",
     "static/media/event_detailPage_01.jpg": "/static/media/event_detailPage_01.8de9809992432ae845a2.jpg",
     "static/media/event_detailPage_00.jpg": "/static/media/event_detailPage_00.f563eae8d130ccdf5e22.jpg",
     "static/media/thumbnail_01.jpg": "/static/media/thumbnail_01.c747da65e7c267690b46.jpg",
     "static/media/thumbnail_00.jpg": "/static/media/thumbnail_00.179a61ce5c2bd0bd3040.jpg",
-    "static/media/event_slider_banner_00.jpg": "/static/media/event_slider_banner_00.46068c7f36e5e00f8134.jpg",
-    "static/media/event_slider_banner_01.jpg": "/static/media/event_slider_banner_01.48d37eb07ab0a9cd2094.jpg",
-    "static/media/main_visual_slider_00.png": "/static/media/main_visual_slider_00.d1c8406b22007f82134e.png",
+    "static/media/main_visual_banner_ai.jpg": "/static/media/main_visual_banner_ai.db9a654fc1de5abe0ec9.jpg",
+    "static/media/main_content_banner.jpg": "/static/media/main_content_banner.eda9a12212b471c0d319.jpg",
+    "static/media/book_moth_01.jpg": "/static/media/book_moth_01.3b2792175a79bb61ac68.jpg",
+    "static/media/book_moth_00.jpg": "/static/media/book_moth_00.ee3135a979425d18ece1.jpg",
+    "static/media/md_book_01.jpg": "/static/media/md_book_01.abe6915a7bcb4e96f9b4.jpg",
+    "static/media/book_moth_02.jpg": "/static/media/book_moth_02.eb087e471c3ed1e6dda5.jpg",
+    "static/media/logo_kyobo.jpg": "/static/media/logo_kyobo.629b2a476e6cd18e243e.jpg",
     "index.html": "/index.html",
-    "main.617ff13c.css.map": "/static/css/main.617ff13c.css.map",
-    "main.5656623c.js.map": "/static/js/main.5656623c.js.map"
+    "main.ee66833d.css.map": "/static/css/main.ee66833d.css.map",
+    "main.5e53e06d.js.map": "/static/js/main.5e53e06d.js.map"
   },
   "entrypoints": [
-    "static/css/main.617ff13c.css",
-    "static/js/main.5656623c.js"
+    "static/css/main.ee66833d.css",
+    "static/js/main.5e53e06d.js"
   ]
 }
