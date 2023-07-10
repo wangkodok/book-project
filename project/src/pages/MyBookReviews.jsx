@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-function BookReportPage() {
+function MyBookReviews() {
   const bookReportList = useSelector((state) => {
     const set = new Set(state.bookReportList);
     const uniqueArr = [...set];
@@ -23,7 +23,7 @@ function BookReportPage() {
     <>
       {bookReportList.length === 0 ? null : (
         <>
-          {SubPageVisual("독후감 작성하기", "인쇄도 할 수 있어요!")}
+          {SubPageVisual("내가 읽었던 책 독후감 작성", "인쇄도 할 수 있어요!")}
 
           <SectionBookList>
             <Inner padding="80px 0">
@@ -77,7 +77,7 @@ function BookReportPage() {
   );
 }
 
-export default BookReportPage;
+export default MyBookReviews;
 
 const ButtonWrap = styled.div`
   display: flex;

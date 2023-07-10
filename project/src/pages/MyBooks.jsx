@@ -20,13 +20,14 @@ export default function BookList() {
   console.log(findProduct);
   return (
     <>
-      {/* 제어 페이지 전체로 제어 걸고 해주기 */}
-
       {findProduct !== undefined ? (
         <Outlet></Outlet>
       ) : (
         <>
-          {SubPageVisual("내가 읽었던 책들", "최소 1년에 12권 읽어요.")}
+          {SubPageVisual(
+            "내가 읽었던 책들",
+            "책을 읽고 독후감을 작성해보아요."
+          )}
           <div>
             <Inner padding="80px 0">
               <BookLists>

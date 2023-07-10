@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 
 // 컴포넌트
 import SubPageTitle from "components/common/SubPageTitle";
-import ProductInfo from "pages/ProductInfo";
-import ProductCount from "pages/ProductCount";
-import ProductTotalPrice from "pages/ProductTotalPrice";
+import ProductInfo from "keep/ProductInfo";
+import ProductCount from "keep/ProductCount";
+import ProductTotalPrice from "keep/ProductTotalPrice";
 import Login from "pages/Login";
 
 // CSS 모듈

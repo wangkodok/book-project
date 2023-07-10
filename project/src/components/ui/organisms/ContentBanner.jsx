@@ -10,7 +10,7 @@ export default function Banner() {
       <Inner className="inner-banner">
         <div className="text-box">
           <h4 className="title">이제, 온라인에서도 책 읽고 기록하세요</h4>
-          <Link to="/" className="title-link">
+          <Link to="/book-record" className="title-link">
             기록하러 가기
           </Link>
         </div>

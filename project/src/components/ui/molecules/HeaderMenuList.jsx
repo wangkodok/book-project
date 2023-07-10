@@ -15,12 +15,12 @@ export default function HeaderMenuList() {
         </Link>
       </li> */}
       <li className="item">
-        <Link to="/BookRecord" className="link">
+        <Link to="/book-record" className="link">
           책기록
         </Link>
       </li>
       <li className="item">
-        <Link to="/Event" className="link">
+        <Link to="/event" className="link">
           이벤트
         </Link>
       </li>
@@ -30,7 +30,7 @@ export default function HeaderMenuList() {
         </Link>
       </li> */}
       <li className="item">
-        <Link to="/guide" className="link">
+        <Link to="/bookstore-guide" className="link">
           서점안내
         </Link>
       </li>

@@ -10,7 +10,7 @@ export default function Modal({ bookData, modal, setModal, i }) {
         {/* <h5>{bookData[i].title}</h5> */}
         <button
           onClick={() => {
-            navigate("/BookRecord/BookList");
+            navigate("/book-record/my-books");
           }}
         >
           이동하기

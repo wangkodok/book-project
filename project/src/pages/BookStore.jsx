@@ -4,13 +4,10 @@ import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function ListBookSites() {
+export default function BookStore() {
   return (
     <>
-      {SubPageVisual(
-        "도서 구매 사이트 목록",
-        "아래의 목록에서 도서를 구매하세요."
-      )}
+      {SubPageVisual("도서 쇼핑몰 사이트", "다양한 사이트에서 만나보세요.")}
       <SectionListBookSite>
         <Inner padding="80px 0">
           <div className="list-book-wrap">

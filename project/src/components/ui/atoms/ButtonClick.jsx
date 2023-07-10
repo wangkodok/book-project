@@ -4,6 +4,7 @@ import styled from "styled-components";
 export default function ButtonClick({
   innerText,
   onClick,
+  type,
   padding,
   margin,
   color,
@@ -18,6 +19,7 @@ export default function ButtonClick({
   return (
     <Button
       onClick={onClick}
+      type={type}
       padding={padding}
       margin={margin}
       color={color}

@@ -6,13 +6,13 @@ export default function HeaderUtil() {
     <Util>
       <ul className="list">
         <li className="item">
-          <Link to="/Login" className="link">
+          <Link to="/login" className="link">
             로그인/회원가입
           </Link>
         </li>
         <li className="item">
-          <Link to="/ListBookSites" className="link">
-            서점사이트보기
+          <Link to="/bookstore" className="link">
+            도서 쇼핑몰 사이트
           </Link>
         </li>
       </ul>

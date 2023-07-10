@@ -11,17 +11,17 @@ import { useState } from "react";
 import Header from "components/common/Header";
 import Footer from "components/common/Footer";
 import Main from "pages/Main";
-import Event from "components/event/Event";
-import EventDetailPage from "components/event/EventDetailPage";
-import ShoppingBasket from "pages/ShoppingBasket";
-import BookReport from "pages/BookReport";
-import BookReportPage from "pages/BookReportPage";
-import BookRecordPage from "pages/BookRecordPage";
-import BookList from "pages/BookList";
-import BookListPage from "pages/BookListPage";
+import Event from "pages/Event";
+import EventDetailPage from "pages/EventDetailPage";
+// import ShoppingBasket from "pages/ShoppingBasket";
+// import BookReport from "pages/BookReport";
+// import BookReportPage from "pages/BookReportPage";
+import BookRecord from "pages/BookRecord";
+import MyBooks from "pages/MyBooks";
+import MyBookReviews from "pages/MyBookReviews";
 import Login from "pages/Login";
-import ListBookSites from "pages/ListBookSites";
-import GuidePage from "pages/GuidePage";
+import BookStore from "pages/BookStore";
+import BookStoreGuide from "pages/BookStoreGuide";
 
 function App() {
   const request = {
@@ -113,23 +113,23 @@ function App() {
         </Route>
 
         {/* 찜목록 */}
-        <Route
+        {/* <Route
           path="/ShoppingBasket"
           element={
             <ShoppingBasket bookData={bookData} convertPrice={convertPrice} />
           }
-        />
+        /> */}
 
         {/* 독후감 */}
-        <Route path="/BookReport" element={<BookReport />}>
+        {/* <Route path="/BookReport" element={<BookReport />}>
           <Route path=":id" element={<BookReportPage />} />
-        </Route>
+        </Route> */}
 
         {/* 책기록 */}
         <Route
-          path="/BookRecord"
+          path="/book-record"
           element={
-            <BookRecordPage
+            <BookRecord
               onChange={onChange}
               onKeyDown={onKeyDown}
               value={query}
@@ -140,17 +140,22 @@ function App() {
               convertPrice={convertPrice}
             />
           }
-        ></Route>
+        />
 
-        <Route path="/BookRecord/BookList" element={<BookList />}>
-          <Route path=":id" element={<BookListPage />} />
+        {/* 책기록 > 내가 읽었던 책들 */}
+        <Route path="/book-record/my-books" element={<MyBooks />}>
+          {/* 책기록 > 내가 읽었던 책들 > 내가 읽었던 책 독후감 작성 */}
+          <Route path=":id" element={<MyBookReviews />} />
         </Route>
 
-        <Route path="/Login" element={<Login />} />
+        {/* 로그인/회원가입 */}
+        <Route path="/login" element={<Login />} />
 
-        <Route path="/ListBookSites" element={<ListBookSites />} />
+        {/* 도서 온라인 사이트 */}
+        <Route path="/bookstore" element={<BookStore />} />
 
-        <Route path="/guide" element={<GuidePage />} />
+        {/* 서점안내 */}
+        <Route path="/bookstore-guide" element={<BookStoreGuide />} />
       </Routes>
 
       {/* 푸터 */}
