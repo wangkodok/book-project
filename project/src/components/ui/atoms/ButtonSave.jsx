@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 // 상태 관리
-import { setBookReportListAdd } from "store/State";
+import { setBookReportListAdd } from "store/states/BookReportList";
 
 // 컴포넌트
 import Modal from "components/ui/organisms/Modal";
