@@ -1,22 +1,47 @@
+// 라이브러리
 import styled from "styled-components";
+
+// 리덕스
+import { useDispatch, useSelector } from "react-redux";
+import { setQueryValue } from "store/states/QueryValue";
+
+// 이미지
 import Search from "assets/ico_search.png";
+
+// 컴포넌트
 import ButtonClick from "components/ui/atoms/ButtonClick";
 
-export default function BookSearch({ onChange, onKeyDown, query, onClick }) {
+export default function BookSearch({ onClick }) {
+  const store = useSelector((state) => {
+    return state;
+  });
+
+  const dispatch = useDispatch();
+
+  // input 값
+  const onChange = (event) => {
+    dispatch(setQueryValue(event.target.value));
+  };
+
+  // 검색 버튼 (Enter Key)
+  const onKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      onClick();
+    }
+  };
+
   return (
     <StyledBookSearch className="bookSearch">
       <form className="form" id="form" name="search">
+        <input type="text" style={{ display: "none" }} />
         <input
           form="form"
           onChange={onChange}
           onKeyDown={onKeyDown}
-          value={query}
+          value={store.queryValue}
           test="text"
           placeholder="책 제목을 입력하세요."
         />
-        {/* <button onClick={onClick} type="button">
-          <span className="blind">검색</span>
-        </button> */}
         <ButtonClick onClick={onClick} type="button" />
       </form>
     </StyledBookSearch>
