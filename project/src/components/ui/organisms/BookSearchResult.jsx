@@ -24,9 +24,11 @@ export default function BookSearchResult() {
   const store = useSelector((state) => {
     return state;
   });
+  console.log(store);
 
   return (
     <>
+      {store.NoSearchResultsv}
       <div className={styled.bookWrap}>
         <ul className={styled.bookList}>
           {store.bookDataList.map((value, i) => {

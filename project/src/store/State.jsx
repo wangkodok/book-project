@@ -5,6 +5,7 @@ import cartList from "./states/CartList";
 import bookReportList from "./states/BookReportList";
 import queryValue from "./states/QueryValue";
 import bookDataList from "./states/BookDataList";
+import NoSearchResults from "./states/NoSearchResults";
 
 export default configureStore({
   reducer: {
@@ -13,5 +14,6 @@ export default configureStore({
     bookReportList: bookReportList.reducer,
     queryValue: queryValue.reducer,
     bookDataList: bookDataList.reducer,
+    NoSearchResults: NoSearchResults.reducer,
   },
 });

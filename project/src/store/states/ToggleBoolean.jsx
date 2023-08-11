@@ -5,8 +5,8 @@ const toggleBoolean = createSlice({
   name: "Toggle",
   initialState: false,
   reducers: {
-    setToggle() {
-      return true;
+    setToggleBoolean(state, action) {
+      return action.payload;
     },
   },
 });

@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 // 리덕스
 import { useDispatch, useSelector } from "react-redux";
 import { setBookDataList } from "store/states/BookDataList";
+import { setToggleBoolean } from "store/states/ToggleBoolean";
+import { setNoSearchResults } from "store/states/NoSearchResults";
 
 // API 가져오기
 import { URL } from "config";
@@ -20,12 +22,13 @@ import MyBookReviews from "pages/MyBookReviews";
 import Login from "pages/Login";
 import BookStore from "pages/BookStore";
 import BookStoreGuide from "pages/BookStoreGuide";
+import { useEffect } from "react";
 
 export default function App() {
   const store = useSelector((state) => {
     return state;
   });
-  // console.log(store);
+  console.log(store);
 
   const dispatch = useDispatch();
 
@@ -40,33 +43,66 @@ export default function App() {
   };
 
   // api
-  const api = (query) => {
-    fetch(
-      `${URL.KAKAO_BOOK}&page=${request.page}&size=${request.size}&query=${
-        query.trim() === "" ? null : query
-      }`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `KakaoAK ${process.env.REACT_APP_SERIAL_KEY}`,
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data.documents);
-        dispatch(setBookDataList(data.documents));
-      });
-  };
+  // const api = (query) => {
+  //   fetch(
+  //     `${URL.KAKAO_BOOK}&page=${request.page}&size=${request.size}&query=${
+  //       query.trim() === "" ? null : query
+  //     }`,
+  //     {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `KakaoAK ${process.env.REACT_APP_SERIAL_KEY}`,
+  //       },
+  //     }
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data.documents, "api click");
+  //       dispatch(setBookDataList(data.documents));
+  //     });
+  // };
+
+  useEffect(() => {
+    if (store.toggleBoolean === true) {
+      fetch(
+        `${URL.KAKAO_BOOK}&page=${request.page}&size=${request.size}&query=${store.queryValue}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `KakaoAK ${process.env.REACT_APP_SERIAL_KEY}`,
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          // 태그 넣어서 해결하기
+          if (store.bookDataList.length === 0) {
+            dispatch(setNoSearchResults("<div>test</div>"));
+          }
+
+          console.log(data.documents);
+          dispatch(setBookDataList(data.documents));
+          dispatch(setToggleBoolean(false));
+        });
+    }
+  }, [store.toggleBoolean, store.queryValue]);
 
   // 검색 버튼 (Mouse Key)
   const onClick = () => {
     console.log("검색 버튼");
 
-    if (store.queryValue.trim() !== "") {
-      api(store.queryValue);
+    if (store.queryValue === "") {
+      alert("입력하지 않았습니다.");
+      return;
     }
+
+    dispatch(setToggleBoolean(true));
+
+    // if (store.queryValue.trim() !== "") {
+    //   api(store.queryValue);
+    // }
   };
 
   return (
