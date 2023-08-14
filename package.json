@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://sunny-dragon-52840c.netlify.app/",
+  "homepage": "https://soft-duckanoo-fc272d.netlify.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
