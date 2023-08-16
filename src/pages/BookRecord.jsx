@@ -1,7 +1,5 @@
-// 리덕스
 import { useSelector } from "react-redux";
 
-// 컴포넌트
 import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import BookSearchResult from "components/ui/organisms/BookSearchResult";
 import BookSearch from "components/ui/organisms/BookSearch";
@@ -15,10 +13,8 @@ export default function BookRecord({ onClick }) {
     <>
       {SubPageVisual("책 기록", "읽었던 책을 검색하고, 저장하여 기록하세요.")}
       <section>
-        {/* 책 검색창 */}
         <BookSearch onClick={onClick} />
 
-        {/* 책 검색 결과 */}
         {store.bookDataList.length === 0 ? null : <BookSearchResult />}
       </section>
     </>

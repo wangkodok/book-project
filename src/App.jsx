@@ -1,16 +1,12 @@
-// 라우터
 import { Routes, Route } from "react-router-dom";
 
-// 리덕스
 import { useDispatch, useSelector } from "react-redux";
 import { setBookDataList } from "store/states/BookDataList";
 import { setToggleBoolean } from "store/states/ToggleBoolean";
 import { setNoSearchResults } from "store/states/NoSearchResults";
 
-// API 가져오기
 import { URL } from "config";
 
-// 컴포넌트
 import Header from "components/common/Header";
 import Footer from "components/common/Footer";
 import Main from "pages/Main";
@@ -42,27 +38,6 @@ export default function App() {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  // api
-  // const api = (query) => {
-  //   fetch(
-  //     `${URL.KAKAO_BOOK}&page=${request.page}&size=${request.size}&query=${
-  //       query.trim() === "" ? null : query
-  //     }`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `KakaoAK ${process.env.REACT_APP_SERIAL_KEY}`,
-  //       },
-  //     }
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data.documents, "api click");
-  //       dispatch(setBookDataList(data.documents));
-  //     });
-  // };
-
   useEffect(() => {
     if (store.toggleBoolean === true) {
       fetch(
@@ -77,7 +52,6 @@ export default function App() {
       )
         .then((response) => response.json())
         .then((data) => {
-          // 태그 넣어서 해결하기
           if (store.bookDataList.length === 0) {
             dispatch(setNoSearchResults("<div>test</div>"));
           }
@@ -89,7 +63,6 @@ export default function App() {
     }
   }, [store.toggleBoolean, store.queryValue]);
 
-  // 검색 버튼 (Mouse Key)
   const onClick = () => {
     console.log("검색 버튼");
 
@@ -99,46 +72,32 @@ export default function App() {
     }
 
     dispatch(setToggleBoolean(true));
-
-    // if (store.queryValue.trim() !== "") {
-    //   api(store.queryValue);
-    // }
   };
 
   return (
     <>
-      {/* 헤더 */}
       <Header />
 
       <Routes>
-        {/* 메인 */}
         <Route path="/" element={<Main />} />
 
-        {/* 이벤트 */}
         <Route path="/event" element={<Event />}>
           <Route path=":id" element={<EventDetailPage />} />
         </Route>
 
-        {/* 책기록 */}
         <Route path="/book-record" element={<BookRecord onClick={onClick} />} />
 
-        {/* 책기록 > 내가 읽었던 책들 */}
         <Route path="/book-record/my-books" element={<MyBooks />}>
-          {/* 책기록 > 내가 읽었던 책들 > 내가 읽었던 책 독후감 작성 */}
           <Route path=":id" element={<MyBookReviews />} />
         </Route>
 
-        {/* 로그인/회원가입 */}
         <Route path="/login" element={<Login />} />
 
-        {/* 도서 온라인 사이트 */}
         <Route path="/bookstore" element={<BookStore />} />
 
-        {/* 서점안내 */}
         <Route path="/bookstore-guide" element={<BookStoreGuide />} />
       </Routes>
 
-      {/* 푸터 */}
       <Footer />
     </>
   );

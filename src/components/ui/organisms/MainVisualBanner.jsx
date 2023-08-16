@@ -1,10 +1,7 @@
-// 스타일 컴포넌트
 import styled from "styled-components";
 
-// 이미지
 import AiBanner from "assets/main_visual_banner_ai.jpg";
 
-// 컴포넌트
 import Image from "components/ui/atoms/Image";
 
 export default function Banner() {

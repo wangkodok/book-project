@@ -1,10 +1,7 @@
-// 스타일 컴포넌트
 import styled from "styled-components";
 
-// 이미지
 import AllMenu from "assets/all-menu.png";
 
-// 컴포넌트
 import Inner from "StyledCommon";
 import ButtonClick from "components/ui/atoms/ButtonClick";
 import HeaderMenuList from "components/ui/molecules/HeaderMenuList";

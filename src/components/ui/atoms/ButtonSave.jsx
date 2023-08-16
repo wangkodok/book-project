@@ -1,14 +1,10 @@
-// 리덕스
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-// 상태 관리
 import { setBookReportListAdd } from "store/states/BookReportList";
 
-// 컴포넌트
 import Modal from "components/ui/organisms/Modal";
 
-// 스타일 컴포넌트
 import styled from "styled-components";
 
 //  버튼 저장 컴포넌트

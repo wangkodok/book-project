@@ -1,14 +1,11 @@
-// 리덕스
 import { useSelector } from "react-redux";
 
-// 컴포넌트
 import ButtonCheck from "components/ui/atoms/ButtonCheck";
 import ButtonSave from "components/ui/atoms/ButtonSave";
 import ButtonClick from "components/ui/atoms/ButtonClick";
 import Image from "components/ui/atoms/Image";
 import Badge from "components/ui/atoms/Badge";
 
-// CSS 모듈
 import styled from "style/main/BookSearchResult.module.css";
 
 // 책 검색 후 목록에 나오는 배지

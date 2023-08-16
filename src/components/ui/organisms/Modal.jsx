@@ -7,7 +7,6 @@ export default function Modal({ bookData, modal, setModal, i }) {
     <ModalWindow>
       <p className="desc">내가 읽었던 책들 보러 가시겠습니까?</p>
       <div className="btn-click">
-        {/* <h5>{bookData[i].title}</h5> */}
         <button
           onClick={() => {
             navigate("/book-record/my-books");
@@ -17,7 +16,6 @@ export default function Modal({ bookData, modal, setModal, i }) {
         </button>
         <button
           onClick={() => {
-            // setModal(false);
             let copy = [...modal];
             copy[i] = false;
             setModal(copy);

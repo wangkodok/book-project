@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ListItem00, ListItem01, ListItem02 } from "./ListItem00";
 
-// 컴포넌트
 import SectionTitle from "components/ui/atoms/SectionTitle";
 
 export default function BookOfTheMonth() {
@@ -15,9 +14,7 @@ export default function BookOfTheMonth() {
       <Inner padding="80px 0">
         <SectionTitle innerText="이달의 책"></SectionTitle>
         <BookOfTheMonthInfo>
-          {/* 왼쪽 */}
           <TabContent activeTab={activeTab} />
-          {/* 오른쪽 */}
           <ol className="common-month">
             <li className={`item ${activeTab === 0 ? "on" : ""}`}>
               <ItemLink
@@ -132,12 +129,6 @@ const BookOfTheMonthInfo = styled.div`
 
     .order-desc {
       text-align: center;
-      /* display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      font-size: 20px;
-      color: #dbdbdb; */
     }
   }
 

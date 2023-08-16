@@ -1,14 +1,10 @@
-// 라이브러리
 import styled from "styled-components";
 
-// 리덕스
 import { useDispatch, useSelector } from "react-redux";
 import { setQueryValue } from "store/states/QueryValue";
 
-// 이미지
 import Search from "assets/ico_search.png";
 
-// 컴포넌트
 import ButtonClick from "components/ui/atoms/ButtonClick";
 
 export default function BookSearch({ onClick }) {
@@ -18,12 +14,10 @@ export default function BookSearch({ onClick }) {
 
   const dispatch = useDispatch();
 
-  // input 값
   const onChange = (event) => {
     dispatch(setQueryValue(event.target.value));
   };
 
-  // 검색 버튼 (Enter Key)
   const onKeyDown = (event) => {
     if (event.keyCode === 13) {
       onClick();

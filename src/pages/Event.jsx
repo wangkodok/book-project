@@ -1,13 +1,9 @@
-// 라우터
 import { Outlet, Link, useParams } from "react-router-dom";
 
-// 오브젝트 데이터
 import eventData from "eventData";
 
-// 컴포넌트
 import SubPageTitle from "components/common/SubPageTitle";
 
-// CSS 모듈
 import styled from "style/event/Event.module.css";
 
 function Event() {

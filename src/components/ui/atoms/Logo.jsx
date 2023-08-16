@@ -1,23 +1,8 @@
-// import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import HeaderLogo from "assets/books_logo.png";
 
 export default function Logo({ setMenuClick }) {
-  // const [menuClick, setMenuClick] = useState(false);
-  // const clickRef = useRef();
-
-  // useEffect(() => {
-  //   const handleOutsideClose = (e) => {
-  //     // useRef current 에 담긴 엘리먼트 바깥을 클릭 시 드롭메뉴 닫힘
-  //     if (menuClick && !clickRef.current.contains(e.target))
-  //       setMenuClick(false);
-  //   };
-  //   document.addEventListener("click", handleOutsideClose);
-
-  //   return () => document.removeEventListener("click", handleOutsideClose);
-  // }, [menuClick]);
-
   return (
     <LogoLink
       to="/"

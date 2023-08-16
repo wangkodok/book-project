@@ -1,7 +1,5 @@
-// 라우터
 import { useParams } from "react-router-dom";
 
-// 컴포넌트
 import eventData from "eventData";
 
 function EventPage() {

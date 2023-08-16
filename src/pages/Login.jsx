@@ -56,7 +56,6 @@ const LoginContent = styled.div`
   padding: 20px;
   box-sizing: border-box;
 
-  /* 로그인 영역의 타이틀 */
   .login-text-area {
     margin: 0 0 20px 0;
     text-align: center;
@@ -71,7 +70,6 @@ const LoginContent = styled.div`
     }
   }
 
-  /* 로그인 영역의 id/pw 입력 창 */
   .login-input-area {
     label {
       display: block;
@@ -94,7 +92,6 @@ const LoginContent = styled.div`
     }
   }
 
-  /* 아이디/비밀번호 찾기, 회원가입 */
   .util-login {
     margin: 20px 0 0 0;
 
