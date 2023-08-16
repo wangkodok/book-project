@@ -1,6 +1,5 @@
 import thumbnail_00 from "../src/assets/thumbnail_00.jpg";
 import thumbnail_01 from "../src/assets/thumbnail_01.jpg";
-
 import detailPage_00 from "../src/assets/event_detailPage_00.jpg";
 import detailPage_01 from "../src/assets/event_detailPage_01.jpg";
 

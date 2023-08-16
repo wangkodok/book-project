@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-import Md_Book_01 from "assets/md_book_01.jpg";
-import Md_Book_02 from "assets/md_book_02.jpg";
-
 import Inner from "StyledCommon";
 import Image from "components/ui/atoms/Image";
 import SectionTitle from "components/ui/atoms/SectionTitle";
+import Md_Book_01 from "assets/md_book_01.jpg";
+import Md_Book_02 from "assets/md_book_02.jpg";
 
 export default function BookMd() {
   return (

@@ -1,6 +1,7 @@
-import Array from "assets/array.png";
 import { useState } from "react";
 import styled from "styled-components";
+
+import Array from "assets/array.png";
 
 // 버튼 체크 컴포넌트
 export default function ButtonCheck() {

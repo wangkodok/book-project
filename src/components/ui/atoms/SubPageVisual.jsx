@@ -1,5 +1,6 @@
-import Inner from "StyledCommon";
 import styled from "styled-components";
+
+import Inner from "StyledCommon";
 
 export default function SubPageVisual(title, desc) {
   return (

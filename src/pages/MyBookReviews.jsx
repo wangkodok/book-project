@@ -1,8 +1,9 @@
-import Inner from "StyledCommon";
-import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+
+import SubPageVisual from "components/ui/atoms/SubPageVisual";
+import Inner from "StyledCommon";
 
 function MyBookReviews() {
   const bookReportList = useSelector((state) => {

@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 import Logo from "assets/arrow.png";
 import FooterBooksLogo from "assets/footer_books_logo.png";
-
-import styled from "styled-components";
 
 function Footer() {
   return (

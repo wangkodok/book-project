@@ -1,7 +1,8 @@
-import Inner from "StyledCommon";
-import ContentBanner from "assets/main_content_banner.jpg";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import Inner from "StyledCommon";
+import ContentBanner from "assets/main_content_banner.jpg";
 
 export default function Banner() {
   return (

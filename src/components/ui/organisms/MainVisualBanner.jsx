@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-import AiBanner from "assets/main_visual_banner_ai.jpg";
-
 import Image from "components/ui/atoms/Image";
+import AiBanner from "assets/main_visual_banner_ai.jpg";
 
 export default function Banner() {
   return (

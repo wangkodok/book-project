@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import HeaderLogo from "assets/books_logo.png";
 
 export default function Logo({ setMenuClick }) {

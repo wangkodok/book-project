@@ -1,9 +1,7 @@
 import { Outlet, Link, useParams } from "react-router-dom";
 
 import eventData from "eventData";
-
 import SubPageTitle from "components/common/SubPageTitle";
-
 import styled from "style/event/Event.module.css";
 
 function Event() {
