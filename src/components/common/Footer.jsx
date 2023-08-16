@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // 이미지
 import Logo from "assets/arrow.png";
+import FooterBooksLogo from "assets/footer_books_logo.png";
 
 // 스타일 컴포넌트
 import styled from "styled-components";
@@ -64,7 +65,7 @@ let ContentList = styled.div`
 `;
 
 let FooterLogo = styled.span`
-  background-image: url("/footer_books_logo.png");
+  background-image: url(${FooterBooksLogo});
   width: 37px;
   height: 44px;
   background-size: auto 44px;

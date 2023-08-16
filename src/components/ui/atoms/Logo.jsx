@@ -1,6 +1,7 @@
 // import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import HeaderLogo from "assets/books_logo.png";
 
 export default function Logo({ setMenuClick }) {
   // const [menuClick, setMenuClick] = useState(false);
@@ -31,7 +32,7 @@ const LogoLink = styled(Link)`
   width: 37px;
   height: 44px;
   font-size: 18px;
-  background-image: url("/books_logo.png");
+  background-image: url(${HeaderLogo});
   background-repeat: no-repeat;
   background-size: auto 44px;
   background-position: center;
