@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function Login() {
+export default function Login() {
   return (
     <LoginContent>
       <div className="login-text-area">
@@ -47,8 +47,6 @@ function Login() {
     </LoginContent>
   );
 }
-
-export default Login;
 
 const LoginContent = styled.div`
   width: 320px;

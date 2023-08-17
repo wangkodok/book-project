@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import HeaderUser from "components/ui/organisms/HeaderUser";
 import HeaderMenu from "components/ui/organisms/HeaderMenu";
 
-function Header() {
+export default function Header() {
   const [menuClick, setMenuClick] = useState(false);
   const clickRef = useRef();
 
@@ -26,5 +26,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

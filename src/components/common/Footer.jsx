@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Logo from "assets/arrow.png";
 import FooterBooksLogo from "assets/footer_books_logo.png";
 
-function Footer() {
+export default function Footer() {
   return (
     <SectionFooter>
       <Inner>
@@ -29,8 +29,6 @@ function Footer() {
     </SectionFooter>
   );
 }
-
-export default Footer;
 
 let SectionFooter = styled.footer`
   position: relative;

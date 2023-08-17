@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import Inner from "StyledCommon";
 
-function MyBookReviews() {
+export default function MyBookReviews() {
   const bookReportList = useSelector((state) => {
     const set = new Set(state.bookReportList);
     const uniqueArr = [...set];
@@ -77,8 +77,6 @@ function MyBookReviews() {
     </>
   );
 }
-
-export default MyBookReviews;
 
 const ButtonWrap = styled.div`
   display: flex;

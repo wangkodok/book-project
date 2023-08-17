@@ -4,7 +4,7 @@ import eventData from "eventData";
 import SubPageTitle from "components/common/SubPageTitle";
 import styled from "style/event/Event.module.css";
 
-function Event() {
+export default function Event() {
   const { id } = useParams();
   const findProduct = eventData.find(function (obj) {
     return obj.id === Number(id);
@@ -53,5 +53,3 @@ function Event() {
     </section>
   );
 }
-
-export default Event;

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 import eventData from "eventData";
 
-function EventPage() {
+export default function EventPage() {
   const { id } = useParams();
   const findProduct = eventData.find(function (obj) {
     return obj.id === Number(id);
@@ -20,5 +20,3 @@ function EventPage() {
     </>
   );
 }
-
-export default EventPage;
