@@ -30,7 +30,7 @@ export default function Footer() {
   );
 }
 
-let SectionFooter = styled.footer`
+const SectionFooter = styled.footer`
   position: relative;
 
   &::before {
@@ -44,7 +44,7 @@ let SectionFooter = styled.footer`
   }
 `;
 
-let Inner = styled.div`
+const Inner = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 22px 0;
@@ -53,12 +53,12 @@ let Inner = styled.div`
   align-items: center;
 `;
 
-let ContentList = styled.div`
+const ContentList = styled.div`
   display: flex;
   align-items: center;
 `;
 
-let FooterLogo = styled.span`
+const FooterLogo = styled.span`
   background-image: url(${FooterBooksLogo});
   width: 37px;
   height: 44px;
@@ -67,18 +67,18 @@ let FooterLogo = styled.span`
   background-repeat: no-repeat;
 `;
 
-let List = styled.ul`
+const List = styled.ul`
   display: flex;
   margin: 0 0 0 80px;
 `;
 
-let Item = styled.li`
+const Item = styled.li`
   margin: 0 24px 0 0;
 `;
 
-let FamilySite = styled.div``;
+const FamilySite = styled.div``;
 
-let FamilyButton = styled.button`
+const FamilyButton = styled.button`
   position: relative;
   width: 200px;
   height: 48px;
