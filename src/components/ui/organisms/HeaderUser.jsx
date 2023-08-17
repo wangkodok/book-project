@@ -3,12 +3,12 @@ import styled from "styled-components";
 import Logo from "components/ui/atoms/Logo";
 import HeaderUtil from "components/ui/molecules/HeaderUtil";
 
-export default function HeaderUser({ setMenuClick }) {
+export default function HeaderUser() {
   return (
     <User>
       <div className="inner">
         <div className="content">
-          <Logo setMenuClick={setMenuClick} />
+          <Logo />
           <HeaderUtil />
         </div>
       </div>

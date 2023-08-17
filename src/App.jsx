@@ -22,18 +22,12 @@ export default function App() {
   const store = useSelector((state) => {
     return state;
   });
-  console.log(store);
 
   const dispatch = useDispatch();
 
   const request = {
     page: 1, // 결과 페이지 번호, 1~100 사이의 값, 기본 값 1
     size: 3, // 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10
-  };
-
-  // 가격 , (콤마) 재사용 함수
-  const convertPrice = (price) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   useEffect(() => {
@@ -62,8 +56,6 @@ export default function App() {
   }, [store.toggleBoolean, store.queryValue]);
 
   const onClick = () => {
-    console.log("검색 버튼");
-
     if (store.queryValue === "") {
       alert("입력하지 않았습니다.");
       return;

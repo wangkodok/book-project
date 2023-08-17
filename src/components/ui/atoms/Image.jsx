@@ -1,12 +1,7 @@
-import styled from "styled-components";
-
 export default function Image({ src, alt }) {
   return (
-    <Figure>
-      <Img src={src} alt={alt} />
-    </Figure>
+    <figure>
+      <img src={src} alt={alt} />
+    </figure>
   );
 }
-
-const Figure = styled.figure``;
-const Img = styled.img``;

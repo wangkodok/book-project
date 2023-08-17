@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Modal({ bookData, modal, setModal, i }) {
+export default function Modal({ modal, setModal, i }) {
   const navigate = useNavigate();
   return (
     <ModalWindow>

@@ -12,13 +12,11 @@ export default function BookList() {
     return uniqueArr;
   });
 
-  console.log(bookReportList);
-
   const { id } = useParams();
   const findProduct = bookReportList.find(function (obj) {
     return obj.isbn === id;
   });
-  console.log(findProduct);
+
   return (
     <>
       {findProduct !== undefined ? (

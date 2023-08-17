@@ -20,7 +20,6 @@ export default function BookSearchResult() {
   const store = useSelector((state) => {
     return state;
   });
-  console.log(store);
 
   return (
     <>

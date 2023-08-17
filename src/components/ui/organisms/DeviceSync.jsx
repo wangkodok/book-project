@@ -13,10 +13,7 @@ export default function DeviceSync() {
               PC, 모바일 모두 사용 가능하고
               <br /> 연동 가능합니다.
             </h4>
-            <p className="title-desc">현재 PC 버전만 사용 가능합니다.</p>
-            <figure>
-              <img src="" alt="" />
-            </figure>
+            <p>현재 PC 버전만 사용 가능합니다.</p>
           </div>
         </Inner>
       </div>
@@ -39,8 +36,6 @@ const SectionDeviceSync = styled.section`
       line-height: 46px;
       letter-spacing: -1px;
       color: #000000;
-    }
-    .title-desc {
     }
   }
 `;

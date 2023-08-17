@@ -3,15 +3,8 @@ import styled from "styled-components";
 
 import HeaderLogo from "assets/books_logo.png";
 
-export default function Logo({ setMenuClick }) {
-  return (
-    <LogoLink
-      to="/"
-      onClick={() => {
-        setMenuClick(false);
-      }}
-    ></LogoLink>
-  );
+export default function Logo() {
+  return <LogoLink to="/"></LogoLink>;
 }
 
 const LogoLink = styled(Link)`

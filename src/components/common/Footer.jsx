@@ -22,9 +22,9 @@ export default function Footer() {
             </Item>
           </List>
         </ContentList>
-        <FamilySite>
+        <div>
           <FamilyButton>Family Site</FamilyButton>
-        </FamilySite>
+        </div>
       </Inner>
     </SectionFooter>
   );
@@ -75,8 +75,6 @@ const List = styled.ul`
 const Item = styled.li`
   margin: 0 24px 0 0;
 `;
-
-const FamilySite = styled.div``;
 
 const FamilyButton = styled.button`
   position: relative;

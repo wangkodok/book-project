@@ -7,7 +7,6 @@ export default function EventPage() {
   const findProduct = eventData.find(function (obj) {
     return obj.id === Number(id);
   });
-  console.log(findProduct.detailPage);
 
   return (
     <>
