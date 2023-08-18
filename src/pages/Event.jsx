@@ -1,8 +1,9 @@
 import { Outlet, Link, useParams } from "react-router-dom";
+import styled from "styled-components";
 
 import eventData from "eventData";
 import SubPageTitle from "components/common/SubPageTitle";
-import styled from "style/event/Event.module.css";
+import Inner from "StyledCommon";
 
 export default function Event() {
   const { id } = useParams();
@@ -11,45 +12,83 @@ export default function Event() {
   });
 
   return (
-    <section className={styled.event}>
-      <div className={styled.inner}>
-        {SubPageTitle("이벤트", "재미있는 이벤트를 즐겨보세요.")}
-      </div>
-      <div className={styled.event_list_wrap}>
+    <SectionEvent>
+      <Inner>
+        <SubPageTitle title={"이벤트"} desc={"재미있는 이벤트를 즐겨보세요."} />
+      </Inner>
+      <EventListWrap>
         <Outlet></Outlet> {/* 이벤트에서 해당하는 페이지 */}
         {findProduct !== undefined ? null : (
-          <ul className={styled.event_list}>
+          <EventList>
             {eventData.map((value, i) => {
               return eventData[i].title === "not open" ? null : (
-                <li key={i} className={styled.item}>
+                <EventListItem key={i}>
                   <Link to={`/event/${eventData[i].id}`}>
-                    <figure className={styled.figure}>
-                      <img
+                    <figure>
+                      <FigureImg
                         src={eventData[i].thumbnail}
                         alt={eventData[i].title}
                       />
                     </figure>
-                    <div className={styled.text_wrap}>
-                      <h3 className={styled.tit}>{eventData[i].title}</h3>
-                      <p className={styled.tit_desc}>{`이벤트 기간: ${eventData[
+                    <TextWrap>
+                      <TextWrapH3>{eventData[i].title}</TextWrapH3>
+                      <TextWrapDesc>{`이벤트 기간: ${eventData[i].period.slice(
+                        0,
+                        4
+                      )}년 ${eventData[i].period.slice(4, 6)}월 ${eventData[
                         i
-                      ].period.slice(0, 4)}년 ${eventData[i].period.slice(
-                        4,
-                        6
-                      )}월 ${eventData[i].period.slice(6, 8)}일 ~ ${eventData[
+                      ].period.slice(6, 8)}일 ~ ${eventData[i].period.slice(
+                        9,
+                        13
+                      )}월 ${eventData[i].period.slice(13, 15)}월 ${eventData[
                         i
-                      ].period.slice(9, 13)}월 ${eventData[i].period.slice(
-                        13,
-                        15
-                      )}월 ${eventData[i].period.slice(15, 17)}일`}</p>
-                    </div>
+                      ].period.slice(15, 17)}일`}</TextWrapDesc>
+                    </TextWrap>
                   </Link>
-                </li>
+                </EventListItem>
               );
             })}
-          </ul>
+          </EventList>
         )}
-      </div>
-    </section>
+      </EventListWrap>
+    </SectionEvent>
   );
 }
+
+const SectionEvent = styled.section`
+  border-top: 1px solid #eee;
+`;
+
+const EventListWrap = styled.div`
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 40px;
+`;
+
+const EventList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const EventListItem = styled.li`
+  width: calc((100% / 3) - 20px);
+  margin: 10px 10px 60px 10px;
+`;
+
+const FigureImg = styled.img`
+  width: 100%;
+`;
+
+const TextWrap = styled.div`
+  margin: 20px 0 0 0;
+`;
+
+const TextWrapH3 = styled.h3`
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+`;
+
+const TextWrapDesc = styled.p`
+  font-size: 14px;
+`;
