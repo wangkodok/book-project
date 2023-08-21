@@ -40,6 +40,7 @@ const Rating = styled.div`
     .star-item.half {
       background-position: -96px 0px;
     }
+
     .star-item.empty {
       background-position: -128px 0px;
     }

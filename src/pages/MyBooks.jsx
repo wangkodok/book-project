@@ -80,16 +80,20 @@ const BookLists = styled.div`
     width: calc(100% / 4 - 21px);
     margin: 0px 28px 80px 0px;
   }
+
   .item:hover .book-write {
     display: block;
   }
+
   .item:nth-child(4n) {
     margin: 0;
   }
+
   .content {
     position: relative;
     padding: 66px 0 0 0;
   }
+
   .img-box {
     position: absolute;
     top: 0;
@@ -97,6 +101,7 @@ const BookLists = styled.div`
     transform: translate(-50%, 0);
     border: 1px solid #eee;
   }
+
   .book-write {
     display: none;
     position: absolute;
@@ -108,9 +113,11 @@ const BookLists = styled.div`
     border: 1px solid #000;
     font-size: 14px;
   }
+
   .text-area {
     margin: 24px 0 0 0;
   }
+
   .title {
     display: block;
     width: 212px;
@@ -119,6 +126,7 @@ const BookLists = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .title-desc {
     width: 224px;
     overflow: hidden;
@@ -127,6 +135,7 @@ const BookLists = styled.div`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
+
   .item-bg {
     background-color: #eee;
     height: 192px;

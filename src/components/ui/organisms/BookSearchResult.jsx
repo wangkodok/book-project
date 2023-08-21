@@ -176,6 +176,7 @@ const BookWrap = styled.div`
   .desc-text {
     margin: 10px 0 0 0;
   }
+
   .desc-text p {
     padding: 0 0 0 40px;
     background-image: url("${Check}");

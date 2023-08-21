@@ -69,6 +69,7 @@ const SectionBookOfTheMonth = styled.section`
   .common-month {
     width: calc(50% - 14px);
   }
+
   .month {
     padding: 32px;
     box-sizing: border-box;

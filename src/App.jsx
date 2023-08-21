@@ -67,27 +67,19 @@ export default function App() {
   return (
     <>
       <Header />
-
       <Routes>
         <Route path="/" element={<Main />} />
-
         <Route path="/event" element={<Event />}>
           <Route path=":id" element={<EventDetailPage />} />
         </Route>
-
         <Route path="/book-record" element={<BookRecord onClick={onClick} />} />
-
         <Route path="/book-record/my-books" element={<MyBooks />}>
           <Route path=":id" element={<MyBookReviews />} />
         </Route>
-
         <Route path="/login" element={<Login />} />
-
         <Route path="/bookstore" element={<BookStore />} />
-
         <Route path="/bookstore-guide" element={<BookStoreGuide />} />
       </Routes>
-
       <Footer />
     </>
   );

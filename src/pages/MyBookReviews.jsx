@@ -22,7 +22,6 @@ export default function MyBookReviews() {
       {bookReportList.length === 0 ? null : (
         <>
           {SubPageVisual("내가 읽었던 책 독후감 작성", "인쇄도 할 수 있어요!")}
-
           <SectionBookList>
             <Inner padding="80px 0">
               <div className="book-wrap">
@@ -105,6 +104,7 @@ const SectionBookList = styled.section`
         font-size: 20px;
         margin: 0 0 12px 0;
       }
+
       p {
         font-size: 16px;
       }
@@ -118,6 +118,7 @@ const List = styled.ul`
   li {
     margin: 0 0 80px 0;
   }
+
   li:last-child {
     margin: 0;
   }
@@ -131,6 +132,7 @@ const Question = styled.p`
 const Form = styled.form`
   font-size: 0;
 `;
+
 const TextArea = styled.textarea`
   width: 100%;
   height: 200px;

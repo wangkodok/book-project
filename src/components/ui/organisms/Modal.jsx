@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export default function Modal({ modal, setModal, i }) {
   const navigate = useNavigate();
+
   return (
     <ModalWindow>
       <p className="desc">내가 읽었던 책들 보러 가시겠습니까?</p>
@@ -41,6 +42,7 @@ const ModalWindow = styled.div`
   .desc {
     margin: 0 0 20px 0;
   }
+
   button {
     border: 1px solid #000;
   }
