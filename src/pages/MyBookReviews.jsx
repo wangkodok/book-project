@@ -21,7 +21,10 @@ export default function MyBookReviews() {
     <>
       {bookReportList.length === 0 ? null : (
         <>
-          {SubPageVisual("내가 읽었던 책 독후감 작성", "인쇄도 할 수 있어요!")}
+          <SubPageVisual
+            title="내가 읽었던 책 독후감 작성"
+            desc="인쇄도 할 수 있어요!"
+          />
           <SectionBookList>
             <Inner padding="80px 0">
               <div className="book-wrap">

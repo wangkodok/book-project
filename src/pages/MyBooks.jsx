@@ -23,10 +23,10 @@ export default function BookList() {
         <Outlet></Outlet>
       ) : (
         <>
-          {SubPageVisual(
-            "내가 읽었던 책들",
-            "책을 읽고 독후감을 작성해보아요."
-          )}
+          <SubPageVisual
+            title="내가 읽었던 책들"
+            desc="책을 읽고 독후감을 작성해보아요."
+          />
           <div>
             <Inner padding="80px 0">
               <BookLists>

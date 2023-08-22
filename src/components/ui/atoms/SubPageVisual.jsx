@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Inner from "StyledCommon";
 
-export default function SubPageVisual(title, desc) {
+export default function SubPageVisual({ title, desc }) {
   return (
     <SectionSubPageVisual>
       <Inner padding="78px 0">

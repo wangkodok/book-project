@@ -11,7 +11,10 @@ export default function BookRecord({ onClick }) {
 
   return (
     <>
-      {SubPageVisual("책 기록", "읽었던 책을 검색하고, 저장하여 기록하세요.")}
+      <SubPageVisual
+        title="책 기록"
+        desc="읽었던 책을 검색하고, 저장하여 기록하세요."
+      />
       <section>
         <BookSearch onClick={onClick} />
         {store.bookDataList.length === 0 ? null : <BookSearchResult />}

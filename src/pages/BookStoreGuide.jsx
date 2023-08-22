@@ -10,7 +10,7 @@ export default function GuidePage() {
 
   return (
     <>
-      {SubPageVisual("서점안내", "서점 검색해 보세요.")}
+      <SubPageVisual title="서점안내" desc="서점 검색해 보세요." />
       <SectionGuide>
         <Inner padding="80px 0">
           <MapContainer buttonInnerText={buttonInnerText}></MapContainer>

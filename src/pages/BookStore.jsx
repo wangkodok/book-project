@@ -8,7 +8,10 @@ import Inner from "StyledCommon";
 export default function BookStore() {
   return (
     <>
-      {SubPageVisual("도서 쇼핑몰 사이트", "다양한 사이트에서 만나보세요.")}
+      <SubPageVisual
+        title="도서 쇼핑몰 사이트"
+        desc="다양한 사이트에서 만나보세요."
+      />
       <SectionListBookSite>
         <Inner padding="80px 0">
           <div className="list-book-wrap">
