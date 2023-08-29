@@ -3,9 +3,12 @@ import { useSelector } from "react-redux";
 import SubPageVisual from "components/ui/atoms/SubPageVisual";
 import BookSearchResult from "components/ui/organisms/BookSearchResult";
 import BookSearch from "components/ui/organisms/BookSearch";
+import Inner from "StyledCommon";
 
 export default function BookRecord({ onClick }) {
   const store = useSelector((state) => {
+    console.log(state);
+    console.log(state.queryValue);
     return state;
   });
 
@@ -17,7 +20,14 @@ export default function BookRecord({ onClick }) {
       />
       <section>
         <BookSearch onClick={onClick} />
-        {store.bookDataList.length === 0 ? null : <BookSearchResult />}
+
+        {store.bookDataList.length === 0 ? (
+          <Inner>
+            <div>{store.NoSearchResults}</div>
+          </Inner>
+        ) : (
+          <BookSearchResult />
+        )}
       </section>
     </>
   );

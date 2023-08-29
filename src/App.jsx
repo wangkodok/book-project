@@ -45,7 +45,9 @@ export default function App() {
         .then((response) => response.json())
         .then((data) => {
           if (store.bookDataList.length === 0) {
-            dispatch(setNoSearchResults("<div>test</div>"));
+            dispatch(
+              setNoSearchResults("찾으시는 도서 상품 검색어가 없습니다.")
+            );
           }
 
           console.log(data.documents);
@@ -57,7 +59,8 @@ export default function App() {
 
   const onClick = () => {
     if (store.queryValue === "") {
-      alert("입력하지 않았습니다.");
+      // alert("입력하지 않았습니다.");
+      dispatch(setNoSearchResults("찾으시는 도서 상품 검색어가 없습니다."));
       return;
     }
 

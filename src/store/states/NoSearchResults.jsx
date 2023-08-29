@@ -5,7 +5,7 @@ const noSearchResults = createSlice({
   initialState: "",
   reducers: {
     setNoSearchResults(state, action) {
-      return action.payload;
+      return (state = action.payload);
     },
   },
 });

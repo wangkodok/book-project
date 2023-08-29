@@ -24,7 +24,7 @@ export default function BookSearchResult() {
 
   return (
     <>
-      {store.NoSearchResultsv}
+      {/* {store.NoSearchResults} */}
       <BookWrap>
         <ul className="bookList">
           {store.bookDataList.map((value, i) => {
