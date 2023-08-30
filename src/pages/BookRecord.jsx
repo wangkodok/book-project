@@ -7,8 +7,6 @@ import Inner from "StyledCommon";
 
 export default function BookRecord({ onClick }) {
   const store = useSelector((state) => {
-    console.log(state);
-    console.log(state.queryValue);
     return state;
   });
 

@@ -50,7 +50,6 @@ export default function App() {
             );
           }
 
-          console.log(data.documents);
           dispatch(setBookDataList(data.documents));
           dispatch(setToggleBoolean(false));
         });
