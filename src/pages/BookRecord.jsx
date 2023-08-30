@@ -12,6 +12,20 @@ export default function BookRecord({ onClick }) {
     return state;
   });
 
+  function BookDataList() {
+    if (store.bookDataList.length === 0) {
+      return (
+        <Inner>
+          <div>{store.NoSearchResults}</div>
+        </Inner>
+      );
+    }
+
+    if (store.bookDataList.length !== 0) {
+      return <BookSearchResult />;
+    }
+  }
+
   return (
     <>
       <SubPageVisual
@@ -20,14 +34,7 @@ export default function BookRecord({ onClick }) {
       />
       <section>
         <BookSearch onClick={onClick} />
-
-        {store.bookDataList.length === 0 ? (
-          <Inner>
-            <div>{store.NoSearchResults}</div>
-          </Inner>
-        ) : (
-          <BookSearchResult />
-        )}
+        <BookDataList />
       </section>
     </>
   );
