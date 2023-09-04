@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { setBookReportListAdd } from "store/states/BookReportList";
 import styled from "styled-components";
 
-export default function Modal({ modal, setModal, i }) {
+export default function Modal({ bookData, modal, setModal, i }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <ModalWindow>
@@ -10,6 +14,7 @@ export default function Modal({ modal, setModal, i }) {
       <div className="btn-click">
         <button
           onClick={() => {
+            dispatch(setBookReportListAdd(bookData[i]));
             navigate("/book-record/my-books");
           }}
         >
